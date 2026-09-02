@@ -1,0 +1,29 @@
+{
+  "name": "job-hunter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Job Hunter — collects jobs from JobVision/IranTalent, matches them against a candidate profile, and notifies via Telegram",
+  "packageManager": "pnpm@10.32.1",
+  "scripts": {
+    "dev": "pnpm --filter @job-hunter/app dev",
+    "build": "pnpm -r build",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm -r typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:migrate": "pnpm --filter @job-hunter/app db:migrate",
+    "db:generate": "pnpm --filter @job-hunter/app db:generate",
+    "db:push": "pnpm --filter @job-hunter/app db:push"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  }
+}

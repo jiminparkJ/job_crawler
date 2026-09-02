@@ -1,0 +1,208 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  fullName  String?
+  telegram  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  candidateProfiles CandidateProfile[]
+  searchProfiles    SearchProfile[]
+  feedback          Feedback[]
+  notifications     Notification[]
+}
+
+model CandidateProfile {
+  id        String   @id @default(cuid())
+  userId    String
+  resumeFile String?
+  fullName  String?
+  email     String?
+  phone     String?
+  summary   String?
+  /// Structured JSON of the extracted profile (skills, experience, ...)
+  profile   Json
+  extractedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user   User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  matches JobMatch[]
+
+  @@index([userId])
+}
+
+model SearchProfile {
+  id                 String   @id @default(cuid())
+  userId             String
+  name               String
+  targetTitles       String[]
+  requiredKeywords   String[]
+  preferredKeywords  String[]
+  excludedKeywords   String[]
+  locations          String[]
+  employmentTypes    String[]
+  remotePolicies     String[]
+  minimumYearsExp    Int?
+  minimumMatchScore  Int      @default(75)
+  minSalary          Int?
+  salaryCurrency     String?
+  active             Boolean  @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  matches      JobMatch[]
+  sourceRuns   SourceRun[]
+
+  @@index([userId, active])
+}
+
+model JobSource {
+  id        String   @id
+  name      String
+  enabled   Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  listings  JobSourceListing[]
+  jobs      Job[]
+  runs      SourceRun[]
+}
+
+model Job {
+  id             String   @id @default(cuid())
+  /// Stable logical key for cross-source dedup
+  logicalKey     String   @unique
+  title          String
+  company        String
+  description    String
+  location       String?
+  remote         String?
+  employmentType String?
+  salaryMin      Int?
+  salaryMax      Int?
+  salaryCurrency String?
+  postedAt       DateTime?
+  contentHash    String
+  active         Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  sourceId      String
+  externalId    String
+  canonicalUrl String
+
+  source      JobSource         @relation(fields: [sourceId], references: [id])
+  listings    JobSourceListing[]
+  matches     JobMatch[]
+  notifications Notification[]
+  feedback    Feedback[]
+
+  @@unique([sourceId, externalId])
+  @@index([title, company, location])
+  @@index([contentHash])
+  @@index([createdAt])
+}
+
+model JobSourceListing {
+  id         String   @id @default(cuid())
+  jobId      String
+  sourceId   String
+  externalId String
+  url        String
+  fetchedAt  DateTime @default(now())
+
+  job    Job        @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  source JobSource  @relation(fields: [sourceId], references: [id])
+
+  @@unique([sourceId, externalId])
+  @@index([jobId])
+}
+
+model JobMatch {
+  id              String   @id @default(cuid())
+  jobId           String
+  searchProfileId String
+  score           Int
+  recommendation  String
+  matchedSkills   String[]
+  missingSkills   String[]
+  explanation     String
+  aiAnalysis      Json?
+  status          String   @default("new")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  job           Job              @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  searchProfile SearchProfile    @relation(fields: [searchProfileId], references: [id], onDelete: Cascade)
+  candidate     CandidateProfile @relation(fields: [candidateProfileId], references: [id], onDelete: Cascade)
+  candidateProfileId String
+  notifications  Notification[]
+
+  @@unique([jobId, searchProfileId])
+  @@index([searchProfileId, score])
+}
+
+model Notification {
+  id          String    @id @default(cuid())
+  userId      String
+  jobId       String
+  jobMatchId  String?
+  channel     String    @default("telegram")
+  status      String    @default("pending")
+  sentAt      DateTime?
+  error       String?
+  attempts    Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job       Job       @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  jobMatch  JobMatch? @relation(fields: [jobMatchId], references: [id], onDelete: SetNull)
+
+  @@unique([userId, jobId, channel])
+  @@index([status])
+}
+
+model Feedback {
+  id        String   @id @default(cuid())
+  userId    String
+  jobId     String
+  action    String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job  Job  @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@index([userId, jobId])
+}
+
+model SourceRun {
+  id              String   @id @default(cuid())
+  sourceId        String
+  searchProfileId String?
+  startedAt       DateTime
+  finishedAt      DateTime?
+  durationMs      Int?
+  found           Int      @default(0)
+  created         Int      @default(0)
+  updated         Int      @default(0)
+  duplicates      Int      @default(0)
+  errors          Int      @default(0)
+  errorDetails    String[]
+  status          String   @default("running")
+
+  source        JobSource     @relation(fields: [sourceId], references: [id])
+  searchProfile SearchProfile? @relation(fields: [searchProfileId], references: [id], onDelete: SetNull)
+
+  @@index([sourceId, startedAt])
+}
