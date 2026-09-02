@@ -1,0 +1,565 @@
+{
+  "traceId": null,
+  "isSuccess": true,
+  "statusCode": 0,
+  "message": "عملیات با موفقیت انجام شد",
+  "data": {
+    "currentPage": 1,
+    "pageSize": 10,
+    "jobPosts": [
+      {
+        "score": 0.5044194459915161,
+        "itemIndex": 1,
+        "searchPositionCoefficient": 1,
+        "labelDetails": [],
+        "id": 1507308,
+        "title": "توسعه‌دهنده Front End (Next.js)",
+        "isPersian": true,
+        "userJobPostInfo": {
+          "matchingScore": 0,
+          "isSuitableForCandidate": false,
+          "isBookmarked": false,
+          "isApplied": false,
+          "isCanceledApply": false,
+          "isAppliedAsVip": false,
+          "hasHighChanceBadge": null
+        },
+        "properties": {
+          "isInternship": false,
+          "isRemote": false,
+          "isUrgent": false,
+          "requiredRelatedExperienceYears": 3,
+          "suitableForDisabled": false,
+          "salaryCanBeShown": true,
+          "isCheckingResumes": false,
+          "typeId": 1,
+          "linkOutAddress": null,
+          "isBlueCollarJob": false
+        },
+        "company": {
+          "id": 253083,
+          "nameFa": "فناوران گستر جهان آرا آریایی",
+          "nameEn": "NovaCore Technologies",
+          "hasPicture": true,
+          "logoFileId": 38771653,
+          "logoUrl": "https://fileapi.jobvision.ir/api/v1.0/files/getimage?fileid=38771653&width=50&height=50",
+          "pageUrl": "/companies/253083/استخدام-فناوران-گستر-جهان-آرا-آریایی",
+          "isEmployerResponsive": false,
+          "isFamous": false,
+          "isGovernmentalCompany": false,
+          "companyScore": 0
+        },
+        "location": {
+          "country": {
+            "id": 1,
+            "title": null,
+            "titleFa": "ایران",
+            "titleEn": "Iran"
+          },
+          "province": {
+            "urlTitle": "all-cities-of-tehran",
+            "id": 17,
+            "title": "تهران",
+            "titleFa": "تهران",
+            "titleEn": "Tehran"
+          },
+          "city": {
+            "citySize": 4,
+            "citySizeGroupId": 1,
+            "province": null,
+            "urlTitle": "tehran",
+            "id": 320,
+            "title": null,
+            "titleFa": "تهران",
+            "titleEn": "Tehran"
+          },
+          "regionGroup": {
+            "id": 5,
+            "title": null,
+            "titleFa": "مرکز",
+            "titleEn": "Center"
+          },
+          "region": {
+            "id": 233,
+            "title": null,
+            "titleFa": "فاطمی",
+            "titleEn": "Fatemi"
+          }
+        },
+        "jobCategories": [
+          {
+            "id": 30,
+            "title": null,
+            "titleFa": "توسعه نرم افزار و برنامه نویسی",
+            "titleEn": "IT - Software Development (Web,Moblie,…)"
+          }
+        ],
+        "benefits": [],
+        "workType": {
+          "id": 120,
+          "title": null,
+          "titleFa": "تمام وقت",
+          "titleEn": "Full Time"
+        },
+        "seniorityLevel": {
+          "id": 97,
+          "title": null,
+          "titleFa": "کارشناس",
+          "titleEn": "Specialist"
+        },
+        "salary": {
+          "id": 0,
+          "title": null,
+          "titleFa": "40 - 45 میلیون تومان",
+          "titleEn": "40 - 45 Million Tomans",
+          "max": 45,
+          "min": 40
+        },
+        "industry": {
+          "id": 50,
+          "title": "فناوری اطلاعات / نرم افزار و سخت افزار",
+          "titleFa": "فناوری اطلاعات / نرم افزار و سخت افزار",
+          "titleEn": "IT / Software / Hardware"
+        },
+        "gender": {
+          "id": 140,
+          "title": null,
+          "titleFa": "ترجیحاً آقا",
+          "titleEn": "Preferred Men"
+        },
+        "labels": [],
+        "firstActivationTime": {
+          "beautifyFa": "امروز",
+          "beautifyEn": "Today",
+          "date": "2026-09-02T10:29:45Z"
+        },
+        "activationTime": {
+          "passedDays": 0,
+          "beautifyFa": "امروز",
+          "beautifyEn": "Today",
+          "date": "2026-09-02T10:29:45Z"
+        },
+        "expireTime": {
+          "daysLeftUntil": 60,
+          "isExpired": false,
+          "beautifyFa": "دیروز",
+          "beautifyEn": "Yesterday",
+          "date": "2026-11-01T10:29:45Z"
+        }
+      },
+      {
+        "score": 0.7540357112884521,
+        "itemIndex": 2,
+        "searchPositionCoefficient": 1,
+        "labelDetails": [],
+        "id": 1455488,
+        "title": "Node.js developer",
+        "isPersian": true,
+        "userJobPostInfo": {
+          "matchingScore": 0,
+          "isSuitableForCandidate": false,
+          "isBookmarked": false,
+          "isApplied": false,
+          "isCanceledApply": false,
+          "isAppliedAsVip": false,
+          "hasHighChanceBadge": null
+        },
+        "properties": {
+          "isInternship": false,
+          "isRemote": false,
+          "isUrgent": false,
+          "requiredRelatedExperienceYears": 2,
+          "suitableForDisabled": false,
+          "salaryCanBeShown": false,
+          "isCheckingResumes": false,
+          "typeId": 1,
+          "linkOutAddress": null,
+          "isBlueCollarJob": false
+        },
+        "company": {
+          "id": 5737,
+          "nameFa": "پرداخت الکترونیک پاسارگاد",
+          "nameEn": "pasargad electronic payment",
+          "hasPicture": true,
+          "logoFileId": 150762,
+          "logoUrl": "https://fileapi.jobvision.ir/api/v1.0/files/getimage?fileid=150762&width=50&height=50",
+          "pageUrl": "/companies/5737/استخدام-پرداخت-الکترونیک-پاسارگاد",
+          "isEmployerResponsive": true,
+          "isFamous": false,
+          "isGovernmentalCompany": false,
+          "companyScore": 3.789819019738678
+        },
+        "location": {
+          "country": {
+            "id": 1,
+            "title": null,
+            "titleFa": "ایران",
+            "titleEn": "Iran"
+          },
+          "province": {
+            "urlTitle": "all-cities-of-tehran",
+            "id": 17,
+            "title": "تهران",
+            "titleFa": "تهران",
+            "titleEn": "Tehran"
+          },
+          "city": {
+            "citySize": 4,
+            "citySizeGroupId": 1,
+            "province": null,
+            "urlTitle": "tehran",
+            "id": 320,
+            "title": null,
+            "titleFa": "تهران",
+            "titleEn": "Tehran"
+          },
+          "regionGroup": {
+            "id": 5,
+            "title": null,
+            "titleFa": "مرکز",
+            "titleEn": "Center"
+          },
+          "region": {
+            "id": 30,
+            "title": null,
+            "titleFa": "امیرآباد",
+            "titleEn": "Amir Abad"
+          }
+        },
+        "jobCategories": [
+          {
+            "id": 30,
+            "title": null,
+            "titleFa": "توسعه نرم افزار و برنامه نویسی",
+            "titleEn": "IT - Software Development (Web,Moblie,…)"
+          }
+        ],
+        "benefits": [],
+        "workType": {
+          "id": 120,
+          "title": null,
+          "titleFa": "تمام وقت",
+          "titleEn": "Full Time"
+        },
+        "seniorityLevel": {
+          "id": 97,
+          "title": null,
+          "titleFa": "کارشناس",
+          "titleEn": "Specialist"
+        },
+        "salary": null,
+        "industry": {
+          "id": 50,
+          "title": "فناوری اطلاعات / نرم افزار و سخت افزار",
+          "titleFa": "فناوری اطلاعات / نرم افزار و سخت افزار",
+          "titleEn": "IT / Software / Hardware"
+        },
+        "gender": {
+          "id": 133,
+          "title": null,
+          "titleFa": "تفاوتی ندارد",
+          "titleEn": "Men / Women"
+        },
+        "labels": [],
+        "firstActivationTime": {
+          "beautifyFa": "دیروز",
+          "beautifyEn": "Yesterday",
+          "date": "2026-09-01T15:46:27Z"
+        },
+        "activationTime": {
+          "passedDays": 1,
+          "beautifyFa": "دیروز",
+          "beautifyEn": "Yesterday",
+          "date": "2026-09-01T15:46:27Z"
+        },
+        "expireTime": {
+          "daysLeftUntil": 59,
+          "isExpired": false,
+          "beautifyFa": "دیروز",
+          "beautifyEn": "Yesterday",
+          "date": "2026-10-31T15:46:27Z"
+        }
+      },
+      {
+        "score": 0.729899525642395,
+        "itemIndex": 3,
+        "searchPositionCoefficient": 0.46,
+        "labelDetails": [],
+        "id": 1492135,
+        "title": "برنامه نویس Back-End (Node.js)",
+        "isPersian": true,
+        "userJobPostInfo": {
+          "matchingScore": 0,
+          "isSuitableForCandidate": false,
+          "isBookmarked": false,
+          "isApplied": false,
+          "isCanceledApply": false,
+          "isAppliedAsVip": false,
+          "hasHighChanceBadge": null
+        },
+        "properties": {
+          "isInternship": false,
+          "isRemote": false,
+          "isUrgent": true,
+          "requiredRelatedExperienceYears": 3,
+          "suitableForDisabled": false,
+          "salaryCanBeShown": true,
+          "isCheckingResumes": false,
+          "typeId": 1,
+          "linkOutAddress": null,
+          "isBlueCollarJob": false
+        },
+        "company": {
+          "id": 217804,
+          "nameFa": "دروازه اندیشه فردا",
+          "nameEn": "Darvazeh Andisheh Farda",
+          "hasPicture": true,
+          "logoFileId": 33872993,
+          "logoUrl": "https://fileapi.jobvision.ir/api/v1.0/files/getimage?fileid=33872993&width=50&height=50",
+          "pageUrl": "/companies/217804/استخدام-دروازه-اندیشه-فردا",
+          "isEmployerResponsive": false,
+          "isFamous": false,
+          "isGovernmentalCompany": false,
+          "companyScore": 0
+        },
+        "location": {
+          "country": {
+            "id": 1,
+            "title": null,
+            "titleFa": "ایران",
+            "titleEn": "Iran"
+          },
+          "province": {
+            "urlTitle": "all-cities-of-semnan",
+            "id": 24,
+            "title": "سمنان",
+            "titleFa": "سمنان",
+            "titleEn": "Semnan"
+          },
+          "city": {
+            "citySize": 1,
+            "citySizeGroupId": 3,
+            "province": null,
+            "urlTitle": "semnan",
+            "id": 526,
+            "title": null,
+            "titleFa": "سمنان",
+            "titleEn": "Semnan"
+          },
+          "regionGroup": null,
+          "region": null
+        },
+        "jobCategories": [
+          {
+            "id": 30,
+            "title": null,
+            "titleFa": "توسعه نرم افزار و برنامه نویسی",
+            "titleEn": "IT - Software Development (Web,Moblie,…)"
+          }
+        ],
+        "benefits": [],
+        "workType": {
+          "id": 120,
+          "title": null,
+          "titleFa": "تمام وقت",
+          "titleEn": "Full Time"
+        },
+        "seniorityLevel": {
+          "id": 97,
+          "title": null,
+          "titleFa": "کارشناس",
+          "titleEn": "Specialist"
+        },
+        "salary": {
+          "id": 0,
+          "title": null,
+          "titleFa": "40 - 70 میلیون تومان",
+          "titleEn": "40 - 70 Million Tomans",
+          "max": 70,
+          "min": 40
+        },
+        "industry": {
+          "id": 50,
+          "title": "فناوری اطلاعات / نرم افزار و سخت افزار",
+          "titleFa": "فناوری اطلاعات / نرم افزار و سخت افزار",
+          "titleEn": "IT / Software / Hardware"
+        },
+        "gender": {
+          "id": 133,
+          "title": null,
+          "titleFa": "تفاوتی ندارد",
+          "titleEn": "Men / Women"
+        },
+        "labels": [],
+        "firstActivationTime": {
+          "beautifyFa": "دیروز",
+          "beautifyEn": "Yesterday",
+          "date": "2026-09-01T09:40:34Z"
+        },
+        "activationTime": {
+          "passedDays": 1,
+          "beautifyFa": "دیروز",
+          "beautifyEn": "Yesterday",
+          "date": "2026-09-01T09:40:34Z"
+        },
+        "expireTime": {
+          "daysLeftUntil": 49,
+          "isExpired": false,
+          "beautifyFa": "دیروز",
+          "beautifyEn": "Yesterday",
+          "date": "2026-10-21T09:40:33Z"
+        }
+      },
+      {
+        "score": 0.5003315210342407,
+        "itemIndex": 5,
+        "searchPositionCoefficient": 0.46,
+        "labelDetails": [
+          {
+            "title": "امکان دورکاری",
+            "type": 2
+          }
+        ],
+        "id": 1504625,
+        "title": "مهندس ارشد توسعه نرم‌افزار (AI-First)",
+        "isPersian": true,
+        "userJobPostInfo": {
+          "matchingScore": 0,
+          "isSuitableForCandidate": false,
+          "isBookmarked": false,
+          "isApplied": false,
+          "isCanceledApply": false,
+          "isAppliedAsVip": false,
+          "hasHighChanceBadge": null
+        },
+        "properties": {
+          "isInternship": false,
+          "isRemote": true,
+          "isUrgent": true,
+          "requiredRelatedExperienceYears": 3,
+          "suitableForDisabled": false,
+          "salaryCanBeShown": false,
+          "isCheckingResumes": false,
+          "typeId": 1,
+          "linkOutAddress": null,
+          "isBlueCollarJob": false
+        },
+        "company": {
+          "id": 275552,
+          "nameFa": "رستا فناور سامانه هوشمند",
+          "nameEn": "rastafanavar",
+          "hasPicture": true,
+          "logoFileId": 39809349,
+          "logoUrl": "https://fileapi.jobvision.ir/api/v1.0/files/getimage?fileid=39809349&width=50&height=50",
+          "pageUrl": "/companies/275552/استخدام-رستا-فناور-سامانه-هوشمند",
+          "isEmployerResponsive": false,
+          "isFamous": false,
+          "isGovernmentalCompany": false,
+          "companyScore": 0
+        },
+        "location": {
+          "country": {
+            "id": 1,
+            "title": null,
+            "titleFa": "ایران",
+            "titleEn": "Iran"
+          },
+          "province": {
+            "urlTitle": "all-cities-of-alborz",
+            "id": 41,
+            "title": "البرز",
+            "titleFa": "البرز",
+            "titleEn": "Alborz"
+          },
+          "city": {
+            "citySize": 3,
+            "citySizeGroupId": 2,
+            "province": null,
+            "urlTitle": "karaj",
+            "id": 346,
+            "title": null,
+            "titleFa": "کرج",
+            "titleEn": "Karaj"
+          },
+          "regionGroup": null,
+          "region": {
+            "id": 3130,
+            "title": null,
+            "titleFa": "عظیمیه",
+            "titleEn": "Azimieh"
+          }
+        },
+        "jobCategories": [
+          {
+            "id": 30,
+            "title": null,
+            "titleFa": "توسعه نرم افزار و برنامه نویسی",
+            "titleEn": "IT - Software Development (Web,Moblie,…)"
+          }
+        ],
+        "benefits": [],
+        "workType": {
+          "id": 173,
+          "title": null,
+          "titleFa": "تمام وقت یا پاره وقت",
+          "titleEn": "Full Time Or Part Time"
+        },
+        "seniorityLevel": {
+          "id": 172,
+          "title": null,
+          "titleFa": "کارشناس ارشد",
+          "titleEn": "Senior Specialist"
+        },
+        "salary": null,
+        "industry": {
+          "id": 50,
+          "title": "فناوری اطلاعات / نرم افزار و سخت افزار",
+          "titleFa": "فناوری اطلاعات / نرم افزار و سخت افزار",
+          "titleEn": "IT / Software / Hardware"
+        },
+        "gender": {
+          "id": 140,
+          "title": null,
+          "titleFa": "ترجیحاً آقا",
+          "titleEn": "Preferred Men"
+        },
+        "labels": ["امکان دورکاری"],
+        "firstActivationTime": {
+          "beautifyFa": "دیروز",
+          "beautifyEn": "Yesterday",
+          "date": "2026-09-01T09:53:38Z"
+        },
+        "activationTime": {
+          "passedDays": 1,
+          "beautifyFa": "دیروز",
+          "beautifyEn": "Yesterday",
+          "date": "2026-09-01T09:53:38Z"
+        },
+        "expireTime": {
+          "daysLeftUntil": 59,
+          "isExpired": false,
+          "beautifyFa": "دیروز",
+          "beautifyEn": "Yesterday",
+          "date": "2026-10-31T09:53:38Z"
+        }
+      }
+    ],
+    "filters": {
+      "keyword": "node.js",
+      "jobCategory": null,
+      "locationWrapper": null,
+      "workExperiences": null,
+      "salaries": null,
+      "workTypes": null,
+      "seniorityLevels": null,
+      "jobPostPublishTime": null,
+      "industries": null,
+      "company": null,
+      "benefits": null,
+      "remote": false
+    },
+    "searchId": "392394223867353600",
+    "jobPostCount": 133,
+    "hasSalaryHistogram": false
+  }
+}

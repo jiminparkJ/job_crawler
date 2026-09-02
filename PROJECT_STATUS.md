@@ -1,50 +1,41 @@
 # PROJECT STATUS
 
-Last updated: 2026-09-02 (session paused mid-M2; see "Resume notes" at bottom)
+Last updated: 2026-09-02 (M2 COMPLETE — verified; continuing to M3)
 
 ## Milestones
 
-| Milestone                      | State                  | Notes                                                                                                                                                                                                                                                                    |
-| ------------------------------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| M0 — Foundation                | COMPLETE (verified)    | workspace, TS strict, Fastify, Prisma schema + migration applied to dev DB, Docker, env config (zod), pino logging w/ secret redaction, ESLint+Prettier+Vitest, health endpoint. All 35 tests green, lint clean, typechecks pass. Committed.                             |
-| M1 — Resume/Candidate profile  | MOSTLY COMPLETE        | Heuristic `ResumeAnalyzer` in `packages/core/src/resume/resumeAnalyzer.ts` with explicit-vs-inferred origins; 10 unit tests over a realistic fixture. Remaining: PDF/DOCX/TXT file-text extraction (only raw-text input currently), wiring to CandidateProfile DB model. |
-| M2 — JobVision                 | IN PROGRESS            | Investigation COMPLETE (see `docs/sources/jobvision.md`). Adapter implementation NOT started.                                                                                                                                                                            |
-| M3 — IranTalent                | PENDING                | Investigation not yet done.                                                                                                                                                                                                                                              |
-| M4 — Unified pipeline          | PENDING                | Core dedup keys (canonicalUrl/contentHash/logicalKey) implemented+tested in core; DB schema has Job/JobSourceListing/unique constraints; pipeline orchestration in app not yet written.                                                                                  |
-| M5 — Rule matching             | MOSTLY COMPLETE (core) | `MatchingEngine` (hard filters, keyword/preference scoring, Persian/English terminology via dictionary) implemented + 8 tests. Persian normalization tested. Needs DB wiring + config-driven profiles.                                                                   |
-| M6 — Telegram                  | PENDING                |                                                                                                                                                                                                                                                                          |
-| M7 — LinkedIn                  | PENDING                | Per PROMPT: email-alert ingestion, optional, never blocking.                                                                                                                                                                                                             |
-| M8 — AI matching               | PENDING                | `JobMatchAnalysis`/`AIProvider` types defined in core; graceful no-semantic path already implemented in scoring (weights redistribute).                                                                                                                                  |
-| M9 — Personalization/hardening | PENDING                |                                                                                                                                                                                                                                                                          |
+| Milestone                      | State                  | Notes                                                                                                                                                                  |
+| ------------------------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| M0 — Foundation                | COMPLETE (verified)    | workspace, TS strict, Fastify, Prisma schema + migration, Docker, env config, logging w/ secret redaction, ESLint+Prettier+Vitest, health endpoint.                    |
+| M1 — Resume/Candidate profile  | MOSTLY COMPLETE        | `ResumeAnalyzer` + 10 tests. Remaining: PDF/DOCX/TXT file-text extraction, wiring to CandidateProfile DB model.                                                        |
+| M2 — JobVision                 | COMPLETE (verified)    | Investigation + adapter + fixtures + 19 unit tests; collection pipeline + 4 DB tests; JobRepository dedup + 8 DB tests. Documented in `docs/sources/jobvision.md`.     |
+| M3 — IranTalent                | IN PROGRESS (next)     | Investigation not yet done.                                                                                                                                            |
+| M4 — Unified pipeline          | LARGELY COMPLETE       | JobRepository (4-level dedup: source+externalId → canonical URL → logical key → content hash), SourceRun recording, source isolation. Remaining: scheduler + matching. |
+| M5 — Rule matching             | MOSTLY COMPLETE (core) | `MatchingEngine` + tests. Remaining: wire to SearchProfile DB rows + config weights.                                                                                   |
+| M6 — Telegram                  | PENDING                |                                                                                                                                                                        |
+| M7 — LinkedIn                  | PENDING                | Email-alert ingestion, optional, never blocking.                                                                                                                       |
+| M8 — AI matching               | PENDING                | Types defined in core; graceful no-semantic path implemented.                                                                                                          |
+| M9 — Personalization/hardening | PENDING                |                                                                                                                                                                        |
 
-## Verification evidence (M0/M1 partial/M5 core)
+## Verification evidence
 
-- `pnpm -r run typecheck` — pass (both packages)
-- `pnpm lint` — pass (0 problems)
-- `pnpm test` — 6 files, 35 tests, all passing (incl. 2 DB integration tests against Postgres via TEST_DATABASE_URL)
-- Prisma migration `20260902064828_init` applied; all 10 tables verified in dev Postgres.
+- `pnpm test` — 9 files, 66 tests, all passing (DB integration via TEST_DATABASE_URL, sequential file execution to avoid collisions)
+- `pnpm lint` — pass; `pnpm -r run typecheck` — pass; `prettier --check .` — pass
+- Dedup constraints exercised by tests: source+externalId unique, cross-source logical dedup, canonical-URL param stripping, content-hash fallback
 
-## Current session state (for resuming)
+## Dev environment
 
-**Dev environment:**
+- Postgres container `jobhunter-postgres` (port 5432, user/pass/db `jobhunter`) — start with `docker start jobhunter-postgres` if stopped.
+- Tests need `DATABASE_URL` + `TEST_DATABASE_URL` pointing at it.
 
-- Postgres container `jobhunter-postgres` (postgres:16-alpine, user/pass/db `jobhunter`, port 5432) was running; may need `docker start jobhunter-postgres` (or `docker compose up -d postgres`) after reboot. All migration state is inside the container volume.
+## Next steps (M3 — IranTalent)
 
-**M2 next steps (investigation already done — DO NOT redo it):**
+1. Investigate current IranTalent website: search mechanism, pagination, job URLs/IDs, detail structure, structured data, network requests (same playbook as JobVision: read the site's own JS to find public APIs).
+2. Respect access controls; no CAPTCHA/anti-bot bypass (PROMPT §4).
+3. Implement `IranTalentSource` in `packages/app/src/sources/irantalent/`, fixtures under `packages/app/test/fixtures/irantalent/`, tests mirroring the JobVision suite, pipeline wiring in `collection.ts`.
+4. Then: M4 remainder (scheduler), M5 wiring, M6 Telegram.
 
-1. Read `docs/sources/jobvision.md` first — it documents the full API: `POST https://candidateapi.jobvision.ir/api/v1/JobPost/List` (camelCase body: `keyword`, `requestedPage`, `pageSize` max 100?, `sortBy` 0=newest/1=relevance/2=salary, `isRemote`, filters as int-arrays), `GET .../JobPost/Detail?jobPostId=N`, `GET .../JobPost/GetAllSearchFilters`, public job URL `https://jobvision.ir/jobs/{id}`. JobVision list fields are PascalCase (`Query`/`PageNumber`) — camelCase is the correct one (matches the site SPA).
-2. Implement `JobVisionSource` adapter in `packages/app/src/sources/jobvision/` following the `SourceAdapter` interface in `packages/core/src/types.ts` (search → SourceListing[]; fetchJob → raw; normalize → NormalizedJob). Use undici (already a dependency), a small fetch wrapper with timeout/retry, and treat HTML `description` (strip tags) + `softwareRequirements[].software.titleEn` as skills.
-3. Field mappings discovered: typeId 120=full_time/121=part_time/122=contract-based (project-based); `workType` present in List, absent in Detail (use typeId or carry from list row); seniorityLevel ids 96/97/172/98... ; salary `{min,max,titleEn}` in million Tomans; `activationTime.date` = postedAt; `properties.isRemote` (List) / `isRemote` (Detail); `requiredRelatedExperienceYears`.
-4. Fixtures: capture real API JSON shapes (sanitized samples from /tmp/kilo/jv_camel.json and /tmp/kilo/jd_ok.json may be gone — record fresh ones via curl if needed and store under `packages/app/test/fixtures/jobvision/`).
-5. Tests: parsing, normalization, malformed data, network failure (mock fetch), missing fields, duplicate jobs — per PROMPT M2 checklist. Update this file + `docs/sources/jobvision.md` as implemented.
+## Commit history
 
-**Other pending follow-ups:**
-
-- M1: file extractors (pdf-parse or similar for PDF, mammoth for DOCX, direct read for TXT) feeding `ResumeAnalyzer.analyze`.
-- M4: pipeline orchestrator in app package using dedup keys + Prisma upserts, SourceRun recording, source isolation.
-- M5: wire MatchingEngine to SearchProfile DB rows; move weights/threshold into config.
-- Terminology dictionary may deserve a JSON/TS config file location + loader (currently `DEFAULT_TERMINOLOGY` const in core).
-
-## Commit history (planned)
-
-- `feat: implement project foundation` — M0 (this commit)
+- `feat: implement project foundation (M0)` — workspace, server, Prisma, core domain, tests, docs
+- `feat: add JobVision source` (M2, this commit)

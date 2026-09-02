@@ -1,7 +1,15 @@
 # JobVision (jobvision.ir) — Source Investigation (M2)
 
 Investigated: 2026-09-02, from the live site's own Angular SPA code (no auth, no browser automation).
-**Status: investigation COMPLETE; adapter NOT yet implemented.**
+**Status: ADAPTER IMPLEMENTED & TESTED** — `packages/app/src/sources/jobvision/jobvisionSource.ts`
+
+## Implementation summary
+
+- `JobVisionSource` implements search (via `searchRows` returning raw posts), `fetchJob` (detail), `normalize`, `normalizeWithDetail` (list+detail merge), `stripHtml` (description HTML→text).
+- HTTP goes through `UndiciHttpClient` (`packages/app/src/sources/http.ts`): timeout, single retry on transient errors, no 4xx retry.
+- Collection pipeline (`packages/app/src/pipeline/collection.ts`) records SourceRun stats, tolerates per-job failures, never lets one source break the run.
+- Tests: `packages/app/test/jobvision.test.ts` (19 unit/fixture tests), `collectionPipeline.integration.test.ts` (4 DB tests) + `jobRepository.integration.test.ts` (8 dedup tests).
+- Fixtures: `packages/app/test/fixtures/jobvision/{list,detail-1455488}.json` (real API payloads, captured 2026-09-02).
 
 ## Discovery method
 
@@ -134,14 +142,15 @@ Company page URL: `https://jobvision.ir{company.pageUrl}`.
 
 None for search/detail. Rate limits unknown — be polite (single-digit QPS, backoff on 429/5xx). No CAPTCHA/anti-bot encountered with plain requests and a normal User-Agent.
 
-## Known failure modes (to test in adapter)
+## Known failure modes (all covered by tests)
 
 - Envelope `isSuccess: false` with 200 (business error) — must check, not just HTTP code.
 - 404 ProblemDetails JSON for deleted/expired jobs (`expireTime.daysLeftUntil`).
-- `salary: null`, `workType` missing in Detail, missing city/province, empty `softwareRequirements`.
+- `salary: null`, `workType` occasionally absent, missing city/province, empty `softwareRequirements`.
 - PascalCase body silently ignoring filters (use camelCase!).
 - String `sortBy` values → HTTP 400.
+- Rows with missing `id` are skipped; missing titles fall back; invalid dates → null.
 
-## Responsible adapter (to be created)
+## Responsible adapter
 
-`packages/app/src/sources/jobvision/` implementing core `SourceAdapter` — search()/fetchJob()/normalize() + fixtures under `packages/app/test/fixtures/jobvision/`.
+`packages/app/src/sources/jobvision/jobvisionSource.ts` (`JobVisionSource`), HTTP via `packages/app/src/sources/http.ts`, pipeline wiring in `packages/app/src/pipeline/collection.ts`.

@@ -20,12 +20,17 @@ d('database schema', () => {
   });
 
   it('persists a full job pipeline row graph', async () => {
+    // Pre-cleanup in case a previous run was interrupted mid-test.
+    await prisma.user.deleteMany({ where: { email: 'db-test@example.com' } });
+
     const user = await prisma.user.create({
       data: { email: 'db-test@example.com', fullName: 'DB Test' },
     });
 
-    const source = await prisma.jobSource.create({
-      data: { id: 'jobvision', name: 'JobVision' },
+    const source = await prisma.jobSource.upsert({
+      where: { id: 'jobvision' },
+      create: { id: 'jobvision', name: 'JobVision' },
+      update: {},
     });
 
     const job = await prisma.job.create({
@@ -128,7 +133,7 @@ d('database schema', () => {
     await prisma.candidateProfile.delete({ where: { id: candidate.id } });
     await prisma.searchProfile.delete({ where: { id: searchProfile.id } });
     await prisma.job.delete({ where: { id: job.id } });
-    await prisma.jobSource.delete({ where: { id: source.id } });
+    // jobvision source row is shared reference data — keep it.
     await prisma.user.delete({ where: { id: user.id } });
   });
 
