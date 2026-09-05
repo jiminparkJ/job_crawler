@@ -38,6 +38,11 @@ export interface TelegramClient {
   deleteWebhook(): Promise<boolean>;
   getUpdates(offset?: number): Promise<TgUpdate[]>;
   answerCallbackQuery(id: string, text?: string): Promise<boolean>;
+  editMessageReplyMarkup(opts: {
+    chatId: string;
+    messageId: number;
+    replyMarkup?: TelegramInlineKeyboard;
+  }): Promise<boolean>;
 }
 
 export interface TgUpdate {
@@ -104,6 +109,21 @@ export class TelegramBotClient implements TelegramClient {
 
   async answerCallbackQuery(id: string, text?: string): Promise<boolean> {
     return this.call('answerCallbackQuery', { callback_query_id: id, ...(text ? { text } : {}) });
+  }
+
+  /** Replace a sent message's inline keyboard (e.g. after button feedback). */
+  async editMessageReplyMarkup(opts: {
+    chatId: string;
+    messageId: number;
+    replyMarkup?: TelegramInlineKeyboard;
+  }): Promise<boolean> {
+    return this.call('editMessageReplyMarkup', {
+      chat_id: opts.chatId,
+      message_id: opts.messageId,
+      ...(opts.replyMarkup
+        ? { reply_markup: opts.replyMarkup }
+        : { reply_markup: { inline_keyboard: [] } }),
+    });
   }
 }
 

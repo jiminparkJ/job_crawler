@@ -6,6 +6,7 @@ import type { TelegramClient, TgUpdate } from '../src/telegram/client.js';
 class FakeTelegram implements TelegramClient {
   updates: TgUpdate[] = [];
   answered: string[] = [];
+  edited: { chatId: string; messageId: number; replyMarkup?: unknown }[] = [];
   getUpdatesCalls: (number | undefined)[] = [];
 
   async sendMessage() {
@@ -25,6 +26,15 @@ class FakeTelegram implements TelegramClient {
   }
   async answerCallbackQuery(id: string) {
     this.answered.push(id);
+    return true;
+  }
+
+  async editMessageReplyMarkup(opts: { chatId: string; messageId: number; replyMarkup?: unknown }) {
+    this.edited.push({
+      chatId: opts.chatId,
+      messageId: opts.messageId,
+      replyMarkup: opts.replyMarkup,
+    });
     return true;
   }
 }
@@ -62,13 +72,20 @@ describe('TelegramUpdateListener', () => {
     expect(stats.processed).toBe(2);
     expect(stats.answered).toBe(2);
     expect(tg.answered).toEqual(['cb1', 'cb2']);
+    // Keyboard replaced with a confirmation chip on the original message
+    expect(tg.edited).toHaveLength(2);
+    expect(tg.edited[0]).toMatchObject({ chatId: '1', messageId: 1 });
+    const kb = tg.edited[0].replyMarkup as {
+      inline_keyboard: { text: string; callback_data: string }[][];
+    };
+    expect(kb.inline_keyboard[0][0].text).toBe('✓ Saved');
     // Second poll passes the advanced offset (past the last update).
     tg.updates = [];
     await listener.pollOnce();
     expect(tg.getUpdatesCalls[1]).toBe(102);
   });
 
-  it('answers the callback even when processing is ignored (bad data)', async () => {
+  it('does not edit the keyboard when callback data is ignored', async () => {
     const tg = new FakeTelegram();
     tg.updates = [cbUpdate(200, 'garbage-data', 'cb3')];
     const service = makeService('ignored');
@@ -77,6 +94,19 @@ describe('TelegramUpdateListener', () => {
     const stats = await listener.pollOnce();
     expect(stats.answered).toBe(1);
     expect(stats.ignored).toBe(1);
+    expect(tg.edited).toHaveLength(0);
+  });
+
+  it('keyboard edit failure is tolerated (message too old / already edited)', async () => {
+    const tg = new FakeTelegram();
+    tg.updates = [cbUpdate(260, 'save:m8', 'cb6')];
+    tg.editMessageReplyMarkup = async () => {
+      throw new Error('Bad Request: message is not modified');
+    };
+    const listener = new TelegramUpdateListener(tg, makeService('saved'));
+    const stats = await listener.pollOnce();
+    expect(stats.saved).toBe(1); // processing still succeeded
+    expect(tg.answered).toEqual(['cb6']);
   });
 
   it('answers the callback even when processing throws (spinner always stops)', async () => {

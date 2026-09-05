@@ -8,6 +8,7 @@
 import type { Logger } from 'pino';
 import type { TelegramClient } from './client.js';
 import type { NotificationService } from './notificationService.js';
+import { acknowledgedKeyboard } from './messages.js';
 
 export interface TelegramListenerStats {
   processed: number;
@@ -61,6 +62,20 @@ export class TelegramUpdateListener {
         if (result === 'saved') stats.saved++;
         else if (result === 'not_relevant') stats.notRelevant++;
         else stats.ignored++;
+
+        // Replace the two-button keyboard with a confirmation chip so the
+        // user sees the press was processed.
+        if (cb.message && (result === 'saved' || result === 'not_relevant')) {
+          try {
+            await this.telegram.editMessageReplyMarkup({
+              chatId: String(cb.message.chat.id),
+              messageId: cb.message.message_id,
+              replyMarkup: acknowledgedKeyboard(result),
+            });
+          } catch {
+            // Message too old / already edited: cosmetic, not an error.
+          }
+        }
       } catch (err) {
         this.options.logger?.warn(
           { data: cb.data, err: err instanceof Error ? err.message : String(err) },

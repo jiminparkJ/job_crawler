@@ -84,3 +84,18 @@ export function feedbackKeyboard(matchId: string): {
     ],
   };
 }
+
+/** Keyboard shown after feedback: single disabled-style confirmation chip. */
+export function acknowledgedKeyboard(action: 'saved' | 'not_relevant'): {
+  inline_keyboard: { text: string; callback_data: string }[][];
+} {
+  return {
+    inline_keyboard: [
+      [
+        action === 'saved'
+          ? { text: '✓ Saved', callback_data: 'noop' }
+          : { text: '✗ Marked Not Relevant', callback_data: 'noop' },
+      ],
+    ],
+  };
+}
