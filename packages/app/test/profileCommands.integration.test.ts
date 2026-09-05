@@ -15,7 +15,7 @@ d('ProfileBotCommands (Telegram profile configuration)', () => {
     prisma = new PrismaClient({ datasources: { db: { url: dbUrl } } });
     commands = new ProfileBotCommands(prisma);
     const user = await prisma.user.create({
-      data: { email: `botcmd-${Date.now()}@example.com` },
+      data: { email: `botcmd-${Date.now()}@example.com`, telegram: '999' },
     });
     userId = user.id;
     const profile = await prisma.searchProfile.create({

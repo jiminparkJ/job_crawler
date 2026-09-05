@@ -11,6 +11,7 @@ import type { TelegramClient } from './client.js';
 import type { NotificationService } from './notificationService.js';
 import { acknowledgedKeyboard } from './messages.js';
 import type { ProfileBotCommands } from './profileCommands.js';
+import type { SettingsMenu } from './settingsMenu.js';
 
 export interface TelegramListenerStats {
   processed: number;
@@ -32,6 +33,7 @@ export class TelegramUpdateListener {
       pollMs?: number;
       logger?: Logger;
       profileCommands?: ProfileBotCommands;
+      settingsMenu?: SettingsMenu;
     } = {},
   ) {}
 
@@ -55,16 +57,38 @@ export class TelegramUpdateListener {
 
       // Text commands (/profile, /set, ...) — handled by ProfileBotCommands.
       const msg = update.message;
-      if (msg?.text?.startsWith('/') && this.options.profileCommands) {
+
+      // Plain text (no slash): menu edit-mode input, else ignored.
+      if (msg?.text && !msg.text.startsWith('/')) {
+        const chatId = String(msg.chat.id);
+        if (this.options.settingsMenu?.editingField(chatId)) {
+          try {
+            const consumed = await this.options.settingsMenu.submitText(chatId, msg.text);
+            if (consumed) stats.commands++;
+          } catch (err) {
+            this.options.logger?.warn({ err }, 'menu text input failed');
+          }
+        }
+        continue;
+      }
+
+      // Text commands (/profile, /set, /settings, ...).
+      if (msg?.text?.startsWith('/')) {
+        const chatId = String(msg.chat.id);
         try {
-          const reply = await this.options.profileCommands.handle(msg.text, msg.from?.id ?? 0);
-          await this.telegram.sendMessage({
-            chatId: String(msg.chat.id),
-            text: reply,
-            parseMode: 'HTML',
-            disableWebPagePreview: true,
-          });
-          stats.commands++;
+          if (/^\/(settings|menu)/.test(msg.text)) {
+            await this.options.settingsMenu?.open(chatId);
+            stats.commands++;
+          } else if (this.options.profileCommands) {
+            const reply = await this.options.profileCommands.handle(msg.text, msg.from?.id ?? 0);
+            await this.telegram.sendMessage({
+              chatId,
+              text: reply,
+              parseMode: 'HTML',
+              disableWebPagePreview: true,
+            });
+            stats.commands++;
+          }
         } catch (err) {
           this.options.logger?.warn(
             { err: err instanceof Error ? err.message : String(err) },
@@ -85,6 +109,20 @@ export class TelegramUpdateListener {
         stats.answered++;
       } catch {
         // answerCallbackQuery has a short window; a miss is harmless.
+      }
+
+      // Menu callbacks (menu:*) — SettingsMenu renders/edits itself.
+      if (cb.data.startsWith('menu:') && this.options.settingsMenu && cb.message) {
+        try {
+          await this.options.settingsMenu.handleCallback(
+            cb.data,
+            String(cb.message.chat.id),
+            cb.from.id,
+          );
+        } catch (err) {
+          this.options.logger?.warn({ err }, 'menu callback failed');
+        }
+        continue;
       }
 
       try {

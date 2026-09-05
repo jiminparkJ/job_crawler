@@ -43,6 +43,13 @@ export interface TelegramClient {
     messageId: number;
     replyMarkup?: TelegramInlineKeyboard;
   }): Promise<boolean>;
+  editMessageText(opts: {
+    chatId: string;
+    messageId: number;
+    text: string;
+    replyMarkup?: TelegramInlineKeyboard;
+  }): Promise<boolean>;
+  setMyCommands(commands: { command: string; description: string }[]): Promise<boolean>;
 }
 
 export interface TgUpdate {
@@ -128,6 +135,28 @@ export class TelegramBotClient implements TelegramClient {
         ? { reply_markup: opts.replyMarkup }
         : { reply_markup: { inline_keyboard: [] } }),
     });
+  }
+
+  /** Edit a sent message's text + keyboard (in-menu navigation). */
+  async editMessageText(opts: {
+    chatId: string;
+    messageId: number;
+    text: string;
+    replyMarkup?: TelegramInlineKeyboard;
+  }): Promise<boolean> {
+    return this.call('editMessageText', {
+      chat_id: opts.chatId,
+      message_id: opts.messageId,
+      text: opts.text,
+      parse_mode: 'HTML',
+      disable_web_page_preview: true,
+      ...(opts.replyMarkup ? { reply_markup: opts.replyMarkup } : {}),
+    });
+  }
+
+  /** Register the bot's "/" command menu (shown by Telegram's menu button). */
+  async setMyCommands(commands: { command: string; description: string }[]): Promise<boolean> {
+    return this.call('setMyCommands', { commands });
   }
 }
 

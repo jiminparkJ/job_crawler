@@ -54,6 +54,7 @@ function parseList(raw: string): string[] {
 const HELP_TEXT = [
   '🤖 <b>Job Hunter commands</b>',
   '',
+  '<code>/settings</code> — ⚙️ interactive settings menu (buttons)',
   '<code>/profile</code> — show your search profile',
   '<code>/set &lt;field&gt; &lt;values&gt;</code> — set a field (replaces old value)',
   '<code>/clear &lt;field&gt;</code> — empty a field',
@@ -213,17 +214,24 @@ export class ProfileBotCommands {
     return `✅ <b>${field}</b> cleared (empty = neutral, not restrictive).`;
   }
 
-  private async findUser(_chatUserId: number) {
-    // Map Telegram user → app user via the search profile owner whose
-    // notifications go to the configured chat (single-user MVP: the
-    // TELEGRAM_CHAT_ID owner). Falls back to sole active profile.
+  private async findUser(chatUserId: number) {
+    // Map Telegram user → app user via the User.telegram column when set;
+    // fall back to the sole profile owner (single-user MVP).
+    if (chatUserId > 0) {
+      const byTelegram = await this.prisma.user.findFirst({
+        where: { telegram: String(chatUserId) },
+        select: { id: true },
+      });
+      if (byTelegram) return byTelegram;
+    }
     const profiles = await this.prisma.searchProfile.findMany({
-      select: { id: true, userId: true },
+      select: { userId: true },
+      orderBy: { updatedAt: 'desc' },
     });
     if (profiles.length === 0) return null;
     if (profiles.length === 1) return { id: profiles[0].userId };
-    // Multi-user future: store chatUserId → user mapping. For now take the
-    // only user with any profile.
+    // Multiple profile owners and no telegram mapping: pick the most recently
+    // updated profile's owner (single-user MVP; multi-user needs the mapping).
     return { id: profiles[0].userId };
   }
 

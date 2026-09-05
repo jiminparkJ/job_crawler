@@ -104,6 +104,7 @@ export async function startWorker(options: WorkerStartupOptions): Promise<Runnin
     const { NotificationService } = await import('../telegram/notificationService.js');
     const { TelegramUpdateListener } = await import('../telegram/updateListener.js');
     const { ProfileBotCommands } = await import('../telegram/profileCommands.js');
+    const { SettingsMenu } = await import('../telegram/settingsMenu.js');
 
     const telegram = new TelegramBotClient(
       new UndiciHttpClient({ baseUrl: 'https://api.telegram.org' }),
@@ -115,11 +116,36 @@ export async function startWorker(options: WorkerStartupOptions): Promise<Runnin
       chatId: options.telegram.chatId,
       logger: options.logger,
     });
+    const settingsMenu = new SettingsMenu(prisma, telegram);
     telegramListener = new TelegramUpdateListener(telegram, notifications, {
       pollMs: 5_000,
       logger: options.logger,
       profileCommands: new ProfileBotCommands(prisma),
+      settingsMenu,
     });
+    // Record the Telegram chat id on the profile owner so bot commands can
+    // map the chat to the right user (multi-user ready).
+    const owner = await prisma.searchProfile.findFirst({
+      orderBy: { updatedAt: 'desc' },
+      select: { userId: true },
+    });
+    if (owner) {
+      await prisma.user
+        .update({ where: { id: owner.userId }, data: { telegram: options.telegram.chatId } })
+        .catch(() => null);
+    }
+    // Register the "/" command menu shown by Telegram's UI.
+    await telegram
+      .setMyCommands([
+        { command: 'settings', description: 'Open the settings menu (buttons)' },
+        { command: 'profile', description: 'Show your search profile' },
+        { command: 'set', description: 'Set a field: /set titles A,B' },
+        { command: 'clear', description: 'Empty a field: /clear excluded' },
+        { command: 'pause', description: 'Pause notifications' },
+        { command: 'resume', description: 'Resume notifications' },
+        { command: 'help', description: 'Command reference' },
+      ])
+      .catch(() => null);
     telegramListener.start();
   }
 
