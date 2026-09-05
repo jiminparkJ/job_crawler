@@ -2,6 +2,7 @@ export * from './types.js';
 export * from './candidate.js';
 export * from './profile.js';
 export * from './match.js';
+export * from './ai.js';
 export * from './terminology.js';
 export * from './terminologyIndex.js';
 export * from './text.js';
