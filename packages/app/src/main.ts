@@ -27,6 +27,9 @@ async function main() {
     irantalentEnabled: env.IRANTALENT_ENABLED,
     keywords: ['node.js', 'backend', 'developer'],
     logger,
+    ...(env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID
+      ? { telegram: { botToken: env.TELEGRAM_BOT_TOKEN, chatId: env.TELEGRAM_CHAT_ID } }
+      : {}),
   });
 
   const shutdown = async (signal: string) => {

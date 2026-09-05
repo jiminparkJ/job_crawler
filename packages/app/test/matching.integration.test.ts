@@ -85,7 +85,7 @@ d('MatchService (M5 wiring)', () => {
   });
 
   it('matches jobs against active search profiles and persists results', async () => {
-    const stats = await matchService.runMatching({ jobIds });
+    const stats = await matchService.runMatching({ jobIds, userId });
 
     expect(stats.jobsConsidered).toBe(2);
     expect(stats.profilesConsidered).toBe(1);
@@ -110,7 +110,7 @@ d('MatchService (M5 wiring)', () => {
   });
 
   it('re-running matching is idempotent (updates, no duplicates)', async () => {
-    const stats = await matchService.runMatching({ jobIds });
+    const stats = await matchService.runMatching({ jobIds, userId });
     expect(stats.matchesCreated).toBe(0);
     expect(stats.matchesUpdated).toBe(2);
 
@@ -129,7 +129,7 @@ d('MatchService (M5 wiring)', () => {
       data: { status: 'saved' },
     });
 
-    await matchService.runMatching({ jobIds });
+    await matchService.runMatching({ jobIds, userId });
 
     const after = await prisma.jobMatch.findUnique({ where: { id: good!.id } });
     expect(after?.status).toBe('saved'); // feedback not overwritten
@@ -143,7 +143,7 @@ d('MatchService (M5 wiring)', () => {
     });
     const pending = await matchService.pendingNotificationMatches(100);
     const ours = pending.filter((p) => jobIds.includes(p.jobId));
-    expect(ours).toHaveLength(1); // only the good job
+    expect(ours).toHaveLength(1); // only the good job (bad one is rejected)
     const matchRow = await prisma.jobMatch.findFirst({
       where: { jobId: ours[0].jobId, searchProfileId: profileId },
     });

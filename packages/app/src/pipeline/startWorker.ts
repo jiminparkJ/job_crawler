@@ -7,6 +7,7 @@ import { PrismaClient } from '@prisma/client';
 import type { Logger } from 'pino';
 import { Scheduler } from './scheduler.js';
 import { createWorkerTick } from './worker.js';
+import type { TelegramUpdateListener } from '../telegram/updateListener.js';
 
 export interface WorkerStartupOptions {
   intervalMinutes: number;
@@ -18,11 +19,17 @@ export interface WorkerStartupOptions {
   irantalentCategories?: string[];
   logger?: Logger;
   prisma?: PrismaClient;
+  /** When set, a Telegram update listener polls button callbacks. */
+  telegram?: {
+    botToken: string;
+    chatId: string;
+  };
 }
 
 export interface RunningWorker {
   prisma: PrismaClient;
   scheduler: Scheduler;
+  telegramListener?: TelegramUpdateListener;
   stop: () => Promise<void>;
 }
 
@@ -80,11 +87,38 @@ export async function startWorker(options: WorkerStartupOptions): Promise<Runnin
   });
   scheduler.start();
 
+  // Telegram button-feedback listener (Save / Not Relevant), when configured.
+  let telegramListener: TelegramUpdateListener | undefined;
+  if (options.telegram?.botToken && options.telegram.chatId) {
+    const { UndiciHttpClient } = await import('../sources/http.js');
+    const { TelegramBotClient } = await import('../telegram/client.js');
+    const { NotificationService } = await import('../telegram/notificationService.js');
+    const { TelegramUpdateListener } = await import('../telegram/updateListener.js');
+
+    const telegram = new TelegramBotClient(
+      new UndiciHttpClient({ baseUrl: 'https://api.telegram.org' }),
+      options.telegram.botToken,
+    );
+    const notifications = new NotificationService({
+      prisma,
+      telegram,
+      chatId: options.telegram.chatId,
+      logger: options.logger,
+    });
+    telegramListener = new TelegramUpdateListener(telegram, notifications, {
+      pollMs: 5_000,
+      logger: options.logger,
+    });
+    telegramListener.start();
+  }
+
   return {
     prisma,
     scheduler,
+    telegramListener,
     stop: async () => {
       scheduler.stop();
+      telegramListener?.stop();
       if (!options.prisma) await prisma.$disconnect(); // only if we own it
     },
   };
