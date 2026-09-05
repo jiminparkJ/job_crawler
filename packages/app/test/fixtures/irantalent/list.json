@@ -1,0 +1,841 @@
+{
+  "current_page": 1,
+  "last_page": 4,
+  "total": 91,
+  "per_page": "30",
+  "data": [
+    {
+      "_score": 1,
+      "matching_score": 0,
+      "id": 182457,
+      "has_screening_questions": false,
+      "screening_questions": [],
+      "brand_data": {
+        "company_legal_name_fa": "نستله ایران",
+        "show_on_site": true,
+        "logo_url": "https://minio1.sc.irtalent.cloud/employer-logo-mini/E328-335_minilogo.jpeg",
+        "cover_image_url": null,
+        "about_fa": null,
+        "industry": {
+          "title_farsi": "تولید و فرآیند",
+          "id": 259,
+          "title": "Manufacturing and Processing ",
+          "slug": "Manufacturing-industry"
+        },
+        "uuid": "e241c419-e30c-423f-b7b9-4681f2c36808",
+        "name_fa": "نستله ایران",
+        "company_legal_name_en": "Nestle Iran",
+        "location": {
+          "flag": "ir",
+          "type": "1",
+          "title": "Iran",
+          "sequence": "1",
+          "country_code": "98",
+          "parent_id": null,
+          "title_farsi": "ایران",
+          "id": 2,
+          "nationality_title_farsi": "ایرانی",
+          "fa_slug": "ایران",
+          "nationality_title": "Iranian",
+          "slug": "iran",
+          "phone_code": null
+        },
+        "logo_mini_url": "https://minio1.sc.irtalent.cloud/employer-logo/E328-335_logo.jpg",
+        "slug": "nestle-iran",
+        "about_en": "As the world’s largest food and beverage company we are driven by a simple aim: unlocking the power of food to enhance quality of life for everyone, today and for generations to come. To deliver on this, we serve with passion, with a spirit of excellence, offering products and services for all stages of life, every moment of the day, helping people care for themselves and their families. Our culture is based on our values rooted in respect: respect for ourselves, respect for others, respect for diversity and respect for the future.\n\nWe can trace our origin back to 1866, when the first European condensed milk factory was opened in Cham, Switzerland, by the Anglo-Swiss Condensed Milk Company. One year later, Henri Nestlé, a trained pharmacist, launched one of the world’s first prepared infant cereals ‘Farine lactée’ in Vevey, Switzerland.\n\nToday, we employ around 273,000 people and have factories or operations in almost every country in the world. With our headquarters still based in the Swiss town of Vevey, we had sales of CHF 84.3 billion in 2020.\n\nOur portfolio covers almost every food and beverage category –offering products and services for all stages of life, every moment of the day, helping people care for themselves and their families.",
+        "is_featured": false,
+        "name_en": "Nestle Iran",
+        "company_size": {
+          "title_farsi": "500 کارمند به بالا",
+          "id": 30,
+          "title": "500 employees or more",
+          "slug": "500-employees-or-more"
+        }
+      },
+      "anonymous_data": null,
+      "created_at": "2026-09-02",
+      "lived_at": "2026-09-02 10:52:29",
+      "expired_at": null,
+      "boosted_at": "2026-09-02 10:52:29",
+      "is_boosted": false,
+      "urgent_at": null,
+      "top_at": "2026-09-02 10:52:29",
+      "title": "IT Helpdesk",
+      "title_farsi": "کارشناس IT",
+      "reference_code": "P0182-457",
+      "slug": "it-helpdesk",
+      "role_description": "IT Helpdesk <br><br>POSITION SNAPSHOT<br>Location: Head Office/ Tehran /Iran <br>Full-time.<br><br>POSITION SUMMARY<br>The IT Help Desk Specialist is responsible for researching, diagnosing, resolving problems, and supporting day-to-day first level of windows, workstations, printers, etc. according to the agreed SLA and responsibility definitions between LGO and the user community.<br><br>A DAY IN THE LIFE …<br><br>The tasks include, but are not limited to<br><br>• Install desktop, laptop, tablet, printers, and other required infrastructure components and perform upgrades and replacements of these components, whenever necessary.<br>• Help users and execute and maintain user administration processes and procedures for local markets supported by the customer care unit; this includes AD administration functions.<br>• Resolve all LGO user access-related problem tickets within SLA timeframes and GLOBE standards.<br>• Manage incidents and assets in the IT infrastructure area, and ensure that they are properly escalated to the GC.<br>• Coordinate with LGO customer care and GC support teams in resolving IT infrastructure issues in their market, e.g., Server, and workstation operations in all sites in the markets/region.<br>• Support Microsoft/Non-Microsoft software in the sites of Iran.<br>• Respond to access-related security issues by providing relevant information and sending relevant KPI reports.<br>• Compliant and security SOPs implementation and administration for the site responsibilities.<br>• IT asset management.<br>• Participate in the local IT infrastructure project in the market.<br>• Maintain customer focus: ensure that he or she has an understanding and afford business needs with a level of priorities required.<br><br>The contract for this position will be with another company.<br>Please only apply if you have no problem having external contact (not with Nestle).<br><br>What will make you successful?<br><br>Technical/Functional:<br>• Skills in the required technology area.<br>• Strong problem-solving and analytical skills.<br>• Communications skills.<br>• Ability to work in a team.<br>• Ability to work under pressure.<br>• Full understanding of Windows 10/11.<br>• Understanding of network cabling.<br><br>Experience:<br>• 2 to 3 years of experience in one or more of the required technology specializations and/or suitable tertiary qualifications in information technology.<br><br>Qualifications:<br>• Relevant degree or equivalent:<br>• MCSA Certificate.<br>• CCNA Certificate.<br><br>Knowledge:<br>• Knowledge of English.<br>",
+      "role_description_farsi": null,
+      "location_text": "Tehran",
+      "location_text_farsi": "تهران",
+      "is_show_salary": false,
+      "is_translated_by_machine": false,
+      "language": "en",
+      "is_precept": false,
+      "work_type": "on_site",
+      "salary_from": null,
+      "salary_to": null,
+      "status": {
+        "id": 169,
+        "title": "Live"
+      },
+      "is_applied": false,
+      "job_category": [
+        {
+          "title_farsi": "فناوری اطلاعات - مهندسی کامپیوتر نرم افزار و توسعه وب",
+          "id": 235,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development"
+        },
+        {
+          "title_farsi": "فناوری اطلاعات / توسعه نرم‌افزار و برنامه نویسی",
+          "id": 356,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development-filter"
+        }
+      ],
+      "is_saved": false,
+      "is_anonymous": false,
+      "employer": {
+        "name_farsi": "نستله ایران",
+        "is_startup": false,
+        "industry_id": "249",
+        "is_responsive": false,
+        "logo_path": "https://minio1.sc.irtalent.cloud/employer-logo/E328-335_logo.jpg",
+        "name": "Nestle Iran",
+        "title_farsi": "نستله ایران",
+        "id": 328,
+        "title": "Nestle Iran",
+        "slug": "nestle-iran"
+      },
+      "location": {
+        "id": 216,
+        "title": "Tehran",
+        "title_farsi": "تهران",
+        "parent": {
+          "id": 2
+        }
+      },
+      "matched_by": null,
+      "matched_by_name": null,
+      "matched_by_applied": false,
+      "seniority": [
+        {
+          "title_farsi": "کارمند / کارشناس",
+          "id": 272,
+          "title": "Junior Professional",
+          "slug": "junior-professional"
+        }
+      ],
+      "jobfair": null,
+      "employment_type": {
+        "title_farsi": "تمام وقت",
+        "id": 186,
+        "title": "Full Time",
+        "slug": "Full-Time-employment-type"
+      },
+      "promote_in_search": [],
+      "is_premium_employer": true,
+      "is_startup": false,
+      "redirection_url": null,
+      "is_crawler": false
+    },
+    {
+      "_score": 1,
+      "matching_score": 0,
+      "id": 182429,
+      "has_screening_questions": false,
+      "screening_questions": [],
+      "brand_data": {
+        "company_legal_name_fa": "خانه هوش ایران",
+        "show_on_site": true,
+        "logo_url": null,
+        "cover_image_url": null,
+        "about_fa": null,
+        "industry": null,
+        "uuid": "c8b7b23a-5c8a-4f30-8298-c39778704e96",
+        "name_fa": "خانه هوش ایران",
+        "company_legal_name_en": "Iran AI House",
+        "location": null,
+        "logo_mini_url": null,
+        "slug": "iran-ai-house",
+        "about_en": null,
+        "is_featured": false,
+        "name_en": "Iran AI House",
+        "company_size": {
+          "title_farsi": "10-49کارمند",
+          "id": 27,
+          "title": "10-49 employees",
+          "slug": "10-49-employees"
+        }
+      },
+      "anonymous_data": null,
+      "created_at": "2026-09-01",
+      "lived_at": "2026-09-01 16:42:01",
+      "expired_at": null,
+      "boosted_at": "2026-09-01 16:42:01",
+      "is_boosted": false,
+      "urgent_at": null,
+      "top_at": "2026-09-01 16:42:01",
+      "title": "Cloud Engineer",
+      "title_farsi": "مهندس زیرساخت ابری",
+      "reference_code": "P0182-429",
+      "slug": "cloud-engineer",
+      "role_description": "Cloud Engineer<br>About the Role<br>We are looking for a skilled Cloud Engineer to join our growing engineering team at RFactorial. In this role, you will design, build, and operate the infrastructure powering our AI and cloud orchestration platform across cloud, on-premises, and hybrid environments.<br>The ideal candidate is a proactive engineer with strong expertise in Kubernetes, cloud infrastructure, networking, and distributed systems. You should be comfortable working across the infrastructure stack—from compute and networking to storage and automation—and be capable of building scalable, reliable platforms for modern AI workloads.<br>________________________________________<br>Key Responsibilities<br>• Design, build, and operate multi-cluster Kubernetes environments.<br>• Develop infrastructure across cloud, on-premises, and virtualized environments.<br>• Build systems for cluster provisioning, workload scheduling, isolation, and autoscaling.<br>• Design and maintain infrastructure automation using Infrastructure as Code.<br>• Work across the infrastructure stack, including servers, networking, storage, containers, and orchestration platforms.<br>• Optimize infrastructure performance, reliability, scalability, and security.<br>• Collaborate closely with backend, platform, and AI engineering teams.<br>• Contribute to infrastructure architecture, technical discussions, and engineering best practices.<br>• Troubleshoot production infrastructure issues and continuously improve platform reliability.<br>• Contribute to documentation, automation, and operational excellence.<br>________________________________________<br>Required Skills & Experience<br>• Minimum 3 years of professional experience in cloud or infrastructure engineering.<br>• Strong hands-on experience with Kubernetes and container orchestration.<br>• Solid understanding of Linux systems, networking, and distributed systems.<br>• Experience designing and managing cloud, on-premises, or hybrid infrastructure.<br>• Experience with Infrastructure as Code tools such as Terraform.<br>• Experience with at least one major cloud provider (AWS, Microsoft Azure, or Google Cloud Platform).<br>• Good understanding of networking concepts, routing, firewalls, VPNs, and datacenter networking.<br>• Familiarity with server hardware, virtualization, and infrastructure components.<br>• Understanding of storage technologies, including distributed storage, object storage, and network-attached storage.<br>• Experience with Git and collaborative engineering workflows.<br>• Strong troubleshooting, automation, and problem-solving skills.<br>• Good communication and documentation skills.<br>________________________________________<br>Nice to Have<br>• Experience with GPU infrastructure and the NVIDIA ecosystem.<br>• Knowledge of high-performance networking technologies such as InfiniBand.<br>• Experience with workflow orchestration platforms such as Argo Workflows or Apache Airflow.<br>• Familiarity with distributed storage platforms such as Ceph.<br>• Relevant networking certifications such as CCNP or equivalent experience.<br>________________________________________<br>Location / Type<br>On-site – Tehran<br>Full-time<br>________________________________________<br>Why Join Us?<br>• Work on cutting-edge AI and cloud-native technologies.<br>• Build the infrastructure powering next-generation GPU and AI platforms.<br>• High ownership and autonomy.<br>• Competitive compensation and equity.<br>• Opportunity to shape a category-defining platform from an early stage.",
+      "role_description_farsi": null,
+      "location_text": "Tehran",
+      "location_text_farsi": "تهران",
+      "is_show_salary": false,
+      "is_translated_by_machine": false,
+      "language": "en",
+      "is_precept": false,
+      "work_type": "on_site",
+      "salary_from": null,
+      "salary_to": null,
+      "status": {
+        "id": 169,
+        "title": "Live"
+      },
+      "is_applied": false,
+      "job_category": [
+        {
+          "title_farsi": "فناوری اطلاعات - مدیریت شبکه/ادمین شبکه",
+          "id": 234,
+          "title": "IT - Network Administration",
+          "slug": "IT-network-administration"
+        },
+        {
+          "title_farsi": "مهندسی - شبکه/ فناوری اطلاعات",
+          "id": 355,
+          "title": "Engineering - IT-Network Administration",
+          "slug": "it-network-administration-filter"
+        },
+        {
+          "title_farsi": "فناوری اطلاعات - مهندسی کامپیوتر نرم افزار و توسعه وب",
+          "id": 235,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development"
+        },
+        {
+          "title_farsi": "فناوری اطلاعات / توسعه نرم‌افزار و برنامه نویسی",
+          "id": 356,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development-filter"
+        },
+        {
+          "title_farsi": "هوش مصنوعی، یادگیری ماشین و اتوماسیون",
+          "id": 591,
+          "title": "AI, Machine Learning & Automation",
+          "slug": "ai_machine_learning"
+        }
+      ],
+      "is_saved": false,
+      "is_anonymous": false,
+      "employer": {
+        "name_farsi": "خانه هوش ایران",
+        "is_startup": false,
+        "industry_id": null,
+        "is_responsive": false,
+        "logo_path": null,
+        "name": "Iran AI House",
+        "title_farsi": "خانه هوش ایران",
+        "id": 52159,
+        "title": "Iran AI House",
+        "slug": "iran-ai-house"
+      },
+      "location": {
+        "id": 216,
+        "title": "Tehran",
+        "title_farsi": "تهران",
+        "parent": {
+          "id": 2
+        }
+      },
+      "matched_by": null,
+      "matched_by_name": null,
+      "matched_by_applied": false,
+      "seniority": [
+        {
+          "title_farsi": "کارشناس ارشد / متخصص",
+          "id": 273,
+          "title": "Experienced professional",
+          "slug": "experienced-professional"
+        }
+      ],
+      "jobfair": null,
+      "employment_type": {
+        "title_farsi": "تمام وقت",
+        "id": 186,
+        "title": "Full Time",
+        "slug": "Full-Time-employment-type"
+      },
+      "promote_in_search": [],
+      "is_premium_employer": true,
+      "is_startup": false,
+      "redirection_url": null,
+      "is_crawler": false
+    },
+    {
+      "_score": 1,
+      "matching_score": 0,
+      "id": 182405,
+      "has_screening_questions": false,
+      "screening_questions": [],
+      "brand_data": {
+        "company_legal_name_fa": "مشاور مدیریت وخدمات ماشینی تامین",
+        "show_on_site": true,
+        "logo_url": "https://minio1.sc.irtalent.cloud/employer-logo-mini/employer_logo_mini_3271k7F_5ec8baca83b5a.jpeg",
+        "cover_image_url": null,
+        "about_fa": null,
+        "industry": {
+          "title_farsi": "فناوری اطلاعات، خدمات اینترنتی و نرم افزار",
+          "id": 257,
+          "title": "IT, Software and Internet Services",
+          "slug": "IT-software-internet-services"
+        },
+        "uuid": "785cfdff-e74d-4f41-8fd2-551dd2c8e7c6",
+        "name_fa": "مشاور مدیریت وخدمات ماشینی تامین",
+        "company_legal_name_en": "Moshavereh Modiriat va Khadamat Mashini Tamin",
+        "location": {
+          "flag": "ir",
+          "type": "2",
+          "title": "Tehran",
+          "sequence": "2",
+          "country_code": "+98",
+          "parent_id": "2",
+          "title_farsi": "تهران",
+          "id": 216,
+          "nationality_title_farsi": null,
+          "fa_slug": "تهران",
+          "nationality_title": null,
+          "slug": "tehran",
+          "phone_code": "21"
+        },
+        "logo_mini_url": "https://minio1.sc.irtalent.cloud/employer-logo/employer_logo_5539ovS_5ec8baca77e58.jpeg",
+        "slug": "moshavereh-modiriat-va-khadamat-mashini-tamin",
+        "about_en": "This company by using resources such as elite experts and modern equipments, while considered years experience of social security organization, studied & reviewed extensively in create a fundamental change in the structure, policies, strategies & tactics of automation systems and IT solutions of \"social security organization\".\nICT & management consultancy services Co. (the executor of the comprehensive automation program & belonging to the Social Security Organization) certified quality management system (ISO- 9001: 2008), first license holder ISO 10002 in the field of information technology & superior ranking country from the High Council of Informatics during successive years, established in 1370 with the aim of active participation in the field of ICT & related projects in public & private sector. Its former services resulted national model in design& implementation of automation program in large organizations & institutions.\n",
+        "is_featured": true,
+        "name_en": "Moshavereh Modiriat va Khadamat Mashini Tamin",
+        "company_size": {
+          "title_farsi": "100-499کارمند",
+          "id": 29,
+          "title": "100-499 employees",
+          "slug": "100-499-employees"
+        }
+      },
+      "anonymous_data": null,
+      "created_at": "2026-09-01",
+      "lived_at": "2026-09-01 13:59:50",
+      "expired_at": null,
+      "boosted_at": "2026-09-01 13:59:50",
+      "is_boosted": false,
+      "urgent_at": null,
+      "top_at": "2026-09-01 13:59:50",
+      "title": "Product Owner",
+      "title_farsi": "مالک محصول",
+      "reference_code": "P0182-405",
+      "slug": "product-owner",
+      "role_description": "Responsibilities: Analyzing and documenting the requirements of users and stakeholders Writing accurate and understandable user stories and managing the product backlog Defining and implementing the product roadmap Managing effective communication with internal and external stakeholders Participating in scrum meetings of the development team to clarify tasks and clarifying ambiguities Planning and managing the product life cycle (Product Lifecycle) Directing OKRs or quarterly product goals and monitoring on their progress<br>Holding and facilitating Sprint Planning, Review and Retrospective meetings. Working closely with the development and support team to provide the best possible experience<br>* Required skills and experiences:<br>Complete mastery of Agile methodologies, especially Scrum<br>Familiarity with project management tools, especially Jira<br>Familiarity with documentation tools such as Confluence or Notion. At least two years of work experience in the role of product owner or similar role<br>Ability to prioritize, make decisions Fast and working in challenging environments<br>High skill in effective communication, both in the team and with external stakeholders<br>Analytical thinking and familiarity with the concepts of KPI and product success indicators<br>It is considered an advantage if:<br>You are interested in user experience (UX) and data analysis<br>Familiar with the concepts and applications of artificial intelligence (AI) in digital products<br>Have experience working with Data Science or Machine Learning teams",
+      "role_description_farsi": "*مسئولیت‌ها:<br>تحلیل و مستندسازی نیازمندی‌های کاربران و ذی‌نفعان<br>نوشتن User Storyهای دقیق و قابل‌درک و مدیریت Backlog محصول<br>تعریف و اجرای نقشه راه محصول.مدیریت ارتباط مؤثر با ذی‌نفعان داخلی و خارجی<br>شرکت در جلسات اسکرام تیم توسعه برای شفاف‌سازی تسک‌ها و رفع ابهامات<br>برنامه‌ریزی و مدیریت چرخه عمر محصول (Product Lifecycle)<br>هدایت OKRها یا اهداف فصلی محصول و نظارت بر پیشرفت آن‌ها<br>برگزاری و تسهیل جلسات Sprint Planning ،Review و Retrospective.همکاری نزدیک با تیم توسعه و پشتیبانی برای ارائه بهترین تجربه ممکن<br>*مهارت‌ها و تجربیات مورد نیاز:<br>تسلط کامل به متدولوژی‌های Agile به‌ویژه Scrum<br>آشنایی با ابزارهای مدیریت پروژه به‌ویژه Jira<br>آشنایی با ابزارهای مستندسازی مانند Confluence یا Notion.حداقل دو سال سابقه کاری در نقش مالک -محصول یا نقش مشابه<br>توانایی اولویت‌بندی، تصمیم‌گیری سریع و کار در محیط‌های پرچالش<br>مهارت بالا در ارتباط مؤثر، هم در تیم و هم با ذی‌نفعان خارجی<br>تفکر تحلیلی و آشنایی با مفاهیم KPI و شاخص‌های موفقیت محصول<br>امتیاز محسوب می‌شود اگر:<br>تجربه کاربری (UX) و تحلیل داده‌ها علاقه‌مند باشید<br>با مفاهیم و کاربردهای هوش مصنوعی (AI) در محصول‌های دیجیتال آشنا باشید<br>تجربه کار با تیم‌های Data Science یا Machine Learning داشته باشید",
+      "location_text": "Tehran",
+      "location_text_farsi": "تهران",
+      "is_show_salary": true,
+      "is_translated_by_machine": true,
+      "language": "fa",
+      "is_precept": false,
+      "work_type": "on_site",
+      "salary_from": 450000000,
+      "salary_to": 600000000,
+      "status": {
+        "id": 169,
+        "title": "Live"
+      },
+      "is_applied": false,
+      "job_category": [
+        {
+          "title_farsi": "فناوری اطلاعات - مدیریت شبکه/ادمین شبکه",
+          "id": 234,
+          "title": "IT - Network Administration",
+          "slug": "IT-network-administration"
+        },
+        {
+          "title_farsi": "مهندسی - شبکه/ فناوری اطلاعات",
+          "id": 355,
+          "title": "Engineering - IT-Network Administration",
+          "slug": "it-network-administration-filter"
+        },
+        {
+          "title_farsi": "فناوری اطلاعات - مهندسی کامپیوتر نرم افزار و توسعه وب",
+          "id": 235,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development"
+        },
+        {
+          "title_farsi": "فناوری اطلاعات / توسعه نرم‌افزار و برنامه نویسی",
+          "id": 356,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development-filter"
+        }
+      ],
+      "is_saved": false,
+      "is_anonymous": false,
+      "employer": {
+        "name_farsi": "مشاور مدیریت وخدمات ماشینی تامین",
+        "is_startup": false,
+        "industry_id": "245",
+        "is_responsive": true,
+        "logo_path": "https://minio1.sc.irtalent.cloud/employer-logo/employer_logo_5539ovS_5ec8baca77e58.jpeg",
+        "name": "Moshavereh Modiriat va Khadamat Mashini Tamin",
+        "title_farsi": "مشاور مدیریت وخدمات ماشینی تامین",
+        "id": 17278,
+        "title": "Moshavereh Modiriat va Khadamat Mashini Tamin",
+        "slug": "moshavereh-modiriat-va-khadamat-mashini-tamin"
+      },
+      "location": {
+        "id": 216,
+        "title": "Tehran",
+        "title_farsi": "تهران",
+        "parent": {
+          "id": 2
+        }
+      },
+      "matched_by": null,
+      "matched_by_name": null,
+      "matched_by_applied": false,
+      "seniority": [
+        {
+          "title_farsi": "کارمند / کارشناس",
+          "id": 272,
+          "title": "Junior Professional",
+          "slug": "junior-professional"
+        }
+      ],
+      "jobfair": null,
+      "employment_type": {
+        "title_farsi": "تمام وقت",
+        "id": 186,
+        "title": "Full Time",
+        "slug": "Full-Time-employment-type"
+      },
+      "promote_in_search": [],
+      "is_premium_employer": true,
+      "is_startup": false,
+      "redirection_url": null,
+      "is_crawler": false
+    },
+    {
+      "_score": 1,
+      "matching_score": 0,
+      "id": 182398,
+      "has_screening_questions": false,
+      "screening_questions": [],
+      "brand_data": {
+        "company_legal_name_fa": "فروشگاه های زنجیره ای افق کوروش",
+        "show_on_site": true,
+        "logo_url": "https://minio1.sc.irtalent.cloud/employer-logo-mini/employer_logo_mini_8135_200118.jpeg",
+        "cover_image_url": null,
+        "about_fa": null,
+        "industry": {
+          "title_farsi": "کالاهای تند مصرف - FMCG",
+          "id": 249,
+          "title": "Consumer Goods - FMCG",
+          "slug": "consumer-goods-fmcg"
+        },
+        "uuid": "686364e9-fa5c-419f-9415-be407e5269b0",
+        "name_fa": "فروشگاه های زنجیره ای افق کوروش",
+        "company_legal_name_en": "Ofogh Koorosh Chain Stores",
+        "location": null,
+        "logo_mini_url": "https://minio1.sc.irtalent.cloud/employer-logo/employer_logo_8135_200117.jpeg",
+        "slug": "ofogh-koorosh-chain-stores",
+        "about_en": "Ofogh Koorosh chain stores had become the leading pioneer of the soft discount model in Iran and maintain trust based relationships with the consumers and plays a leading role in the retailing industry in Iran. The company vision is becoming the biggest retail chain store in Iran and achieving a high customer satisfaction. The company has always respected the right of all stakeholders. OKCS is welcoming to all Iranian people and families.",
+        "is_featured": false,
+        "name_en": "Ofogh Koorosh Chain Stores",
+        "company_size": {
+          "title_farsi": "500 کارمند به بالا",
+          "id": 30,
+          "title": "500 employees or more",
+          "slug": "500-employees-or-more"
+        }
+      },
+      "anonymous_data": null,
+      "created_at": "2026-09-01",
+      "lived_at": "2026-09-01 12:05:03",
+      "expired_at": null,
+      "boosted_at": "2026-09-01 12:05:03",
+      "is_boosted": false,
+      "urgent_at": null,
+      "top_at": "2026-09-01 12:05:03",
+      "title": "Back-End Developer",
+      "title_farsi": "توسعه‌دهنده بک‌اند",
+      "reference_code": "P0182-398",
+      "slug": "back-end-developer",
+      "role_description": "<p dir=\"rtl\">شرح موقعیت شغلی<br />ما در ستاد مرکزی شرکت افق کوروش در جستجوی یک Backend Developer برای پیوستن به تیم IT خود در تهران هستیم.<br />شرح شغل<br />تحلیل، طراحی، توسعه، و بهینه&zwnj;سازی سیستم&zwnj;های فروش فروشگاهی Dynamics 365 Store Commerce و Dynamics AX 2012<br />تست، پایش و تضمین کیفیت سیستم<br />امنیت و یکپارچگی سیستم ها<br />شرایط احراز<br />تسلط و آشنایی مناسب با:<br />TypeScript/JavaScript/HTML/CSS<br />SQL Server<br />Postman / SoapUI (API Testing)/GIT<br />#C<br />تسلط و آشنایی نسبی با:<br />Microsoft Dynamics 365 Store Commerce<br />Microsoft Dynamics AX 2012<br />مزایا و فرصت&zwnj;هایی که می&zwnj;توانیم برای همکار جدیدمان فراهم کنیم:<br />حقوق و مزایای رقابتی<br />بیمه تکمیلی رایگان<br />شرکت در المپیادهای ورزشی<br />داشتن امنیت شغلی با امکان جابه&zwnj;جایی در گروه صنعتی گلرنگ<br />بن ارزاق، میان وعده و ناهار<br />دریافت پاداش به صورت ماهانه و سالانه<br />پزشک سازمانی<br />فرصت&zwnj;های آموزشی و توسعه فردی<br />محیط کاری پویا و دوستانه<br />امکان پیشرفت شغلی و ارتقا<br />تسهیلات مالی و وام<br />افق کوروش هرروز درحال رشد کردن و بزرگ شدن است و فرصت رشد و ایجاد تغییرات سازنده را دارید.</p>",
+      "role_description_farsi": "<p dir=\"rtl\">شرح موقعیت شغلی<br />ما در ستاد مرکزی شرکت افق کوروش در جستجوی یک Backend Developer برای پیوستن به تیم IT خود در تهران هستیم.</p>\n<p dir=\"rtl\"><br />شرح شغل:<br />تحلیل، طراحی، توسعه، و بهینه&zwnj;سازی سیستم&zwnj;های فروش فروشگاهی Dynamics 365 Store Commerce و Dynamics AX 2012<br />تست، پایش و تضمین کیفیت سیستم<br />امنیت و یکپارچگی سیستم ها</p>\n<p dir=\"rtl\"><br />شرایط احراز:<br />تسلط و آشنایی مناسب با:<br />TypeScript/JavaScript/HTML/CSS<br />SQL Server<br />Postman / SoapUI (API Testing)/GIT<br />#C<br />تسلط و آشنایی نسبی با:<br />Microsoft Dynamics 365 Store Commerce<br />Microsoft Dynamics AX 2012<br />مزایا و فرصت&zwnj;هایی که می&zwnj;توانیم برای همکار جدیدمان فراهم کنیم:<br />حقوق و مزایای رقابتی<br />بیمه تکمیلی رایگان<br />شرکت در المپیادهای ورزشی<br />داشتن امنیت شغلی با امکان جابه&zwnj;جایی در گروه صنعتی گلرنگ<br />بن ارزاق، میان وعده و ناهار<br />دریافت پاداش به صورت ماهانه و سالانه<br />پزشک سازمانی<br />فرصت&zwnj;های آموزشی و توسعه فردی<br />محیط کاری پویا و دوستانه<br />امکان پیشرفت شغلی و ارتقا<br />تسهیلات مالی و وام<br />افق کوروش هرروز درحال رشد کردن و بزرگ شدن است و فرصت رشد و ایجاد تغییرات سازنده را دارید.</p>",
+      "location_text": "Tehran",
+      "location_text_farsi": "تهران",
+      "is_show_salary": false,
+      "is_translated_by_machine": false,
+      "language": "fa",
+      "is_precept": false,
+      "work_type": "on_site",
+      "salary_from": null,
+      "salary_to": null,
+      "status": {
+        "id": 170,
+        "title": "Live-approved"
+      },
+      "is_applied": false,
+      "job_category": [
+        {
+          "title_farsi": "فناوری اطلاعات - مهندسی کامپیوتر نرم افزار و توسعه وب",
+          "id": 235,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development"
+        },
+        {
+          "title_farsi": "فناوری اطلاعات / توسعه نرم‌افزار و برنامه نویسی",
+          "id": 356,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development-filter"
+        }
+      ],
+      "is_saved": false,
+      "is_anonymous": false,
+      "employer": {
+        "name_farsi": "فروشگاه های زنجیره ای افق کوروش",
+        "is_startup": false,
+        "industry_id": "249",
+        "is_responsive": true,
+        "logo_path": "https://minio1.sc.irtalent.cloud/employer-logo/employer_logo_8135_200117.jpeg",
+        "name": "Ofogh Koorosh Chain Stores",
+        "title_farsi": "فروشگاه های زنجیره ای افق کوروش",
+        "id": 8135,
+        "title": "Ofogh Koorosh Chain Stores",
+        "slug": "ofogh-koorosh-chain-stores"
+      },
+      "location": {
+        "id": 216,
+        "title": "Tehran",
+        "title_farsi": "تهران",
+        "parent": {
+          "id": 2
+        }
+      },
+      "matched_by": null,
+      "matched_by_name": null,
+      "matched_by_applied": false,
+      "seniority": [
+        {
+          "title_farsi": "کارمند / کارشناس",
+          "id": 272,
+          "title": "Junior Professional",
+          "slug": "junior-professional"
+        }
+      ],
+      "jobfair": null,
+      "employment_type": {
+        "title_farsi": "تمام وقت",
+        "id": 186,
+        "title": "Full Time",
+        "slug": "Full-Time-employment-type"
+      },
+      "promote_in_search": [],
+      "is_premium_employer": true,
+      "is_startup": false,
+      "redirection_url": null,
+      "is_crawler": false
+    },
+    {
+      "_score": 1,
+      "matching_score": 0,
+      "id": 182388,
+      "has_screening_questions": false,
+      "screening_questions": [],
+      "brand_data": {
+        "company_legal_name_fa": "پژواک پولاد پیشتاز",
+        "show_on_site": true,
+        "logo_url": "https://minio1.sc.irtalent.cloud/brand-data/brand_data_1590lXY_64913b39d4b8d.jpg",
+        "cover_image_url": "https://minio1.sc.irtalent.cloud/brand-data/brand_data_6734eMa_64b29dd416f78.png",
+        "about_fa": "تیم آهن پیشتاز برگرفته از افرادی متخصص، پویا و جوان است؛ ما در آهن پیشتاز همواره به صورت گروهی تلاش می‌کنیم نیازهای مشتریان را در حوزه فولاد و آهن برطرف کنیم.\nتیم ما متشکل شده از افرادی، که از طریق دانش فنی و مهارت‌های حرفه‌ای خود، به دنبال ارائه راهکارهای متنوع و انعطاف‌پذیر برای نیازهای صنعتی و ساختمانی مشتریان هستند.\nبا فروشگاه آنلاین ما، مشتریان می‌توانند به آسانی و در هر زمانی اقلام مورد نیاز خود را سفارش داده و از خدمات آهن فروشی آنلاین ما بهره‌برداری کنند. \nهمچنین، تیم پشتیبانی ما در هر لحظه آماده است مشتریان را در انتخاب محصولات و پاسخگویی به سوالاتشان راهنمایی کند.\nما در آهن پیشتاز، از تکنولوژی پیشرفته و سیستم های امنیتی قوی استفاده می‌کنیم تا بهترین تجربه خرید آنلاین را برای مشتریان فراهم کنیم.\nاگر شما یک فرد متخصص در حوزه کاری خود هستید و به دنبال جایی برای رشد، آن هم در حوزه فروش آهن آلات هستید، آهن پیشتاز می‌تواند همان شریکی باشد که به دنبالش هستید. ما از همکاری با شما و ایجاد رابطه ای بلندمدت و مفید برای هر دو طرف استقبال می‌کنیم.\nاگر علاقه‌مند به همکاری با ما هستید و می‌خواهید با تیمی جوان و پویا وارد دنیای فروش آهن آلات و بازرگانی استیل شوید، لطفاً رزومه خود را به همراه اطلاعات تماس ارسال کنید. ما با دقت به هر یک از درخواست‌ها پاسخ خواهیم داد و به تمام تلاش خود می‌کنیم تا یک فرایند استخدام سریع و موفق را برای شما فراهم کنیم.",
+        "industry": {
+          "title_farsi": "بازرگانی",
+          "id": 444,
+          "title": "Commerce",
+          "slug": "commerce"
+        },
+        "uuid": "4f058def-aaa1-4274-8449-f342924a3c49",
+        "name_fa": "آهن پیشتاز",
+        "company_legal_name_en": "Pejvak Poulad Pishtaz",
+        "location": {
+          "flag": "ir",
+          "type": "2",
+          "title": "Tehran",
+          "sequence": "2",
+          "country_code": "+98",
+          "parent_id": "2",
+          "title_farsi": "تهران",
+          "id": 216,
+          "nationality_title_farsi": null,
+          "fa_slug": "تهران",
+          "nationality_title": null,
+          "slug": "tehran",
+          "phone_code": "21"
+        },
+        "logo_mini_url": null,
+        "slug": "ahan-pishtaz",
+        "about_en": "The Ahn-e Pishetaz team consists of knowledgeable, dynamic, and young individuals. At Ahn-e Pishetaz, we always work collectively to meet the needs of our customers in the field of steel and iron.\n\nOur team is composed of individuals who strive to provide diverse and flexible solutions for the industrial and construction needs of our customers through their technical expertise and professional skills.\n\nWith our online store, customers can easily place orders for their required items at any time and benefit from our online iron sales services. Furthermore, our support team is available at all times to guide customers in selecting products and answering their questions.\n\nAt Ahn-e Pishetaz, we utilize advanced technology and strong security systems to provide the best online shopping experience for our customers.\n\nIf you are a specialist in your field and seeking a place for growth, especially in the field of iron sales, Ahn-e Pishetaz can be the partner you are looking for. We welcome collaboration with you and aim to establish a long-term and mutually beneficial relationship.\n\nIf you are interested in working with us and becoming part of a young and dynamic team in the world of iron sales and steel trading, please send us your resume along with your contact information. We will carefully review each request and make every effort to provide you with a quick and successful hiring process.",
+        "is_featured": false,
+        "name_en": "Ahan Pishtaz",
+        "company_size": {
+          "title_farsi": "10-49کارمند",
+          "id": 27,
+          "title": "10-49 employees",
+          "slug": "10-49-employees"
+        }
+      },
+      "anonymous_data": null,
+      "created_at": "2026-09-01",
+      "lived_at": "2026-09-01 10:20:09",
+      "expired_at": null,
+      "boosted_at": "2026-09-01 10:20:09",
+      "is_boosted": false,
+      "urgent_at": null,
+      "top_at": "2026-09-01 10:20:09",
+      "title": "Senior Website & SEO Specialist",
+      "title_farsi": "کارشناس ارشد سایت و سئو",
+      "reference_code": "P0182-388",
+      "slug": "senior-website-seo-specialist",
+      "role_description": "<p dir=\"rtl\">ما در آهن پیشتاز به یک نیروی **مسئولیت&zwnj;پذیر، خلاق و نتیجه&zwnj;محور** مسلط به سایت و سئو نیازمندیم.<br /><br />**مهارت&zwnj;های مورد نیاز:**<br /><br />- تسلط به **WordPress و WooCommerce**<br />- تسلط به **تولید محتوا و سئو تکنیکال**<br />- تسلط به **Google Search Console، Google Analytics** و ابزارهای سئو<br />- آشنایی با **استراتژی&zwnj;های سئو و دیجیتال مارکتینگ**<br />- آشنایی با **اینستاگرام و الگوریتم&zwnj;های آن**<br />- آشنایی با **HTML، CSS و JavaScript**<br />- آشنایی با افزونه&zwnj;های وردپرس و افزونه&zwnj;نویسی<br />- آشنایی با **Photoshop** و آماده&zwnj;سازی تصاویر<br />- توانایی **کار تیمی، پیگیری و حل مسئله**<br /><br />**داشتن نمونه&zwnj;کار در زمینه سئو و مدیریت سایت مزیت محسوب می&zwnj;شود.**<br /><br />مزایا: بیمه تامین اجتماعی از روز اول کاری + بیمه درمانی تکمیلی + صبحانه + وام سازمانی + بسته&zwnj;ها و هدایای مناسبتی و ...</p>",
+      "role_description_farsi": "<p dir=\"rtl\">ما در آهن پیشتاز به یک نیروی **مسئولیت&zwnj;پذیر، خلاق و نتیجه&zwnj;محور** مسلط به سایت و سئو نیازمندیم.<br /><br />**مهارت&zwnj;های مورد نیاز:**<br /><br />- تسلط به **WordPress و WooCommerce**<br />- تسلط به **تولید محتوا و سئو تکنیکال**<br />- تسلط به **Google Search Console، Google Analytics** و ابزارهای سئو<br />- آشنایی با **استراتژی&zwnj;های سئو و دیجیتال مارکتینگ**<br />- آشنایی با **اینستاگرام و الگوریتم&zwnj;های آن**<br />- آشنایی با **HTML، CSS و JavaScript**<br />- آشنایی با افزونه&zwnj;های وردپرس و افزونه&zwnj;نویسی<br />- آشنایی با **Photoshop** و آماده&zwnj;سازی تصاویر<br />- توانایی **کار تیمی، پیگیری و حل مسئله**<br /><br />**داشتن نمونه&zwnj;کار در زمینه سئو و مدیریت سایت مزیت محسوب می&zwnj;شود.**<br /><br />مزایا: بیمه تامین اجتماعی از روز اول کاری + بیمه درمانی تکمیلی + صبحانه + وام سازمانی + بسته&zwnj;ها و هدایای مناسبتی و ...</p>",
+      "location_text": "Tehran",
+      "location_text_farsi": "تهران",
+      "is_show_salary": false,
+      "is_translated_by_machine": false,
+      "language": "fa",
+      "is_precept": false,
+      "work_type": "on_site",
+      "salary_from": null,
+      "salary_to": null,
+      "status": {
+        "id": 170,
+        "title": "Live-approved"
+      },
+      "is_applied": false,
+      "job_category": [
+        {
+          "title_farsi": "فناوری اطلاعات - مهندسی کامپیوتر نرم افزار و توسعه وب",
+          "id": 235,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development"
+        },
+        {
+          "title_farsi": "فناوری اطلاعات / توسعه نرم‌افزار و برنامه نویسی",
+          "id": 356,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development-filter"
+        },
+        {
+          "title_farsi": "فناوری اطلاعات - مدیریت شبکه/ادمین شبکه",
+          "id": 234,
+          "title": "IT - Network Administration",
+          "slug": "IT-network-administration"
+        },
+        {
+          "title_farsi": "مهندسی - شبکه/ فناوری اطلاعات",
+          "id": 355,
+          "title": "Engineering - IT-Network Administration",
+          "slug": "it-network-administration-filter"
+        },
+        {
+          "title_farsi": "دیجیتال مارکتینگ",
+          "id": 587,
+          "title": "Digital Marketing & Growth",
+          "slug": "digital_marketing_growth"
+        }
+      ],
+      "is_saved": false,
+      "is_anonymous": false,
+      "employer": {
+        "name_farsi": "آهن پیشتاز",
+        "is_startup": false,
+        "industry_id": "444",
+        "is_responsive": true,
+        "logo_path": null,
+        "name": "Ahan Pishtaz",
+        "title_farsi": "پژواک پولاد پیشتاز",
+        "id": 31711,
+        "title": "Pejvak Poulad Pishtaz",
+        "slug": "pejvak-poulad-pishtaz"
+      },
+      "location": {
+        "id": 216,
+        "title": "Tehran",
+        "title_farsi": "تهران",
+        "parent": {
+          "id": 2
+        }
+      },
+      "matched_by": null,
+      "matched_by_name": null,
+      "matched_by_applied": false,
+      "seniority": [
+        {
+          "title_farsi": "کارشناس ارشد / متخصص",
+          "id": 273,
+          "title": "Experienced professional",
+          "slug": "experienced-professional"
+        }
+      ],
+      "jobfair": null,
+      "employment_type": {
+        "title_farsi": "تمام وقت",
+        "id": 186,
+        "title": "Full Time",
+        "slug": "Full-Time-employment-type"
+      },
+      "promote_in_search": [],
+      "is_premium_employer": true,
+      "is_startup": false,
+      "redirection_url": null,
+      "is_crawler": false
+    }
+  ],
+  "boosted_positions": [
+    {
+      "_score": 1,
+      "matching_score": 0,
+      "id": 180811,
+      "has_screening_questions": false,
+      "screening_questions": [],
+      "brand_data": {
+        "company_legal_name_fa": "پارس پک",
+        "show_on_site": true,
+        "logo_url": "https://minio1.sc.irtalent.cloud/employer-logo-mini/employer_logo_mini_229HB3_5eeef36ca9259.jpeg",
+        "cover_image_url": null,
+        "about_fa": null,
+        "industry": {
+          "title_farsi": "فناوری اطلاعات، خدمات اینترنتی و نرم افزار",
+          "id": 257,
+          "title": "IT, Software and Internet Services",
+          "slug": "IT-software-internet-services"
+        },
+        "uuid": "f1899f43-a0ac-4566-bd0a-14b0a796ce66",
+        "name_fa": "پارس پک",
+        "company_legal_name_en": "ParsPack",
+        "location": {
+          "flag": "ir",
+          "type": "2",
+          "title": "Tehran",
+          "sequence": "2",
+          "country_code": "+98",
+          "parent_id": "2",
+          "title_farsi": "تهران",
+          "id": 216,
+          "nationality_title_farsi": null,
+          "fa_slug": "تهران",
+          "nationality_title": null,
+          "slug": "tehran",
+          "phone_code": "21"
+        },
+        "logo_mini_url": "https://minio1.sc.irtalent.cloud/employer-logo/employer_logo_3050Wp6_5eeef36c997dd.jpeg",
+        "slug": "parspack",
+        "about_en": "ParsPack is the first cloud computing provider in Iran while introduced innovative market-leading products such as cloud server, cloud hosting, CDN. \nParsPack's products bind with hosting innovations which come with high responsible technical support\n",
+        "is_featured": false,
+        "name_en": "Parspack",
+        "company_size": {
+          "title_farsi": "100-499کارمند",
+          "id": 29,
+          "title": "100-499 employees",
+          "slug": "100-499-employees"
+        }
+      },
+      "anonymous_data": null,
+      "created_at": "2026-07-27",
+      "lived_at": "2026-07-27 14:04:52",
+      "expired_at": null,
+      "boosted_at": "2026-08-25 11:55:39",
+      "is_boosted": true,
+      "urgent_at": null,
+      "top_at": "2026-07-27 14:04:52",
+      "title": "Senior Laravel Developer",
+      "title_farsi": "برنامه‌نویس ارشد لاراول",
+      "reference_code": "P0180-811",
+      "slug": "senior-laravel-developer",
+      "role_description": "<p dir=\"rtl\">اگر یک برنامه نویس خوش فکر و متخصصی، دوست داری در محیطی جوان و پویا مسیر رشد رو طی کنی، و خودت رو مناسب موقعیت شغلی مورد نیاز ما می دونی؛ باعث خوشحالی ماست که رزومه شما رو داشته باشیم.<br /><br />مسئولیت&zwnj;ها:<br /><br />تحلیل، طراحی و توسعه&zwnj;ی سرویس&zwnj;های Backend برای محصولات و پلتفرم&zwnj;های ابری شرکت با تمرکز بر کیفیت و تحویل سریع<br />ارائه راه&zwnj;حل برای ساختار سیستم، طراحی پایگاه&zwnj;داده و لایه&zwnj;ی ذخیره&zwnj;سازی با در نظر گرفتن مقیاس و پایداری<br />تصمیم&zwnj;گیری روی مرز ماژول&zwnj;ها در معماری Modular Monolith و DDD و حفظ سلامت boundary بین domainها<br />طراحی و پیاده&zwnj;سازی با اولویت رعایت اصول امنیتی (IDOR، OWASP، Gate، Policy)<br />استفاده&zwnj;ی موثر و هوشمندانه از ابزارهای AI (Cursor، Copilot، Claude ) برای افزایش سرعت توسعه، تست،code review و دیباگ<br />پیاده&zwnj;سازی ماژول&zwnj;های قابل استفاده&zwnj;ی مجدد و کدنویسی تمیز و قابل تست<br />توانایی بررسی و دیباگ سیستم در محیط پروداکشن و رفع bottleneckهای performance و امنیتی<br />مشارکت در code review با تمرکز ویژه روی مسائل امنیتی و authorization، و نهادینه&zwnj;سازی workflowهای AI-assisted در تیم<br />طراحی API امن و همکاری نزدیک با تیم Frontend روی contract و یکپارچه&zwnj;سازی<br /><br /><br />مهارت&zwnj;های مورد نیاز:<br /><br />تسلط به زبان PHP و فرم ورک Laravel<br />تسلط به مفاهیم طراحی نرم&zwnj;افزار، پایگاه داده&zwnj;ها و الگوهای معماری<br />شناخت کافی از معماری&zwnj;های Modular Monolith و Service-based و آشنایی با Domain-Driven Design<br />تسلط به مباحث پایه&zwnj;ی امنیت در توسعه&zwnj;ی Web و APIشامل شناخت دقیق IDOR و توانایی طراحی کنترل دسترسی resource-level و تفکیک دقیق Authentication و Authorization و پیاده&zwnj;سازی صحیح آن<br />تجربه&zwnj;ی عملی استفاده از ابزارهای AI برای کدنویسی Cursor) ، Copilot،Claude ) توانایی نوشتنprompt موثر<br />آشنایی با Redis در نقش cache، queue و lock<br />توانایی طراحی و نوشتن تست (unit / feature)<br />تسلط به Git و gitflow<br />تسلط به دستورات CLI در لینوکس<br />آشنایی با Docker و درک مفاهیم containerization<br />آشنایی با CI/CD و فرآیندهای deploy خودکار<br />داشتن دید نسبت به زیرساخت&zwnj;های ابری (شبکه، مجازی&zwnj;سازی، storage) مزیت محسوب می&zwnj;شود<br />آشنایی با مباحث امنیتی محیط&zwnj;های multi-tenant مزیت محسوب می&zwnj;شود<br />آشنایی با NoSql (MongoDB, Elasticsearch) مزیت محسوب میشود<br />آشنایی با زبان&zwnj;های Backend دیگر مانند Go و Node.js مزیت محسوب می&zwnj;شود<br />آشنایی با فریم&zwnj;ورک&zwnj;های Frontend مزیت محسوب می&zwnj;شود<br />تجربه&zwnj;ی mentoring و رهبری فنی تیم مزیت محسوب می&zwnj;شود<br /><br /><br />سایر شرایط:<br />روز و ساعات کاری: شنبه تا چهارشنبه از ساعت 8 تا 16:45 با دو ساعت تایم شناور<br /><br /><br />مزایای همکاری با پارس پک:<br /><br />دورکاری<br />امکان امریه دانش بنیان<br />بیمه تکمیلی با پوشش درمانی خوب<br />فرصت کسب تجربه در کنار تیمی حرفه ای و صمیمی<br />محیط کاری امن و زمینه مناسب جهت رشد و پیشرفت</p>",
+      "role_description_farsi": "<p dir=\"rtl\">اگر یک برنامه نویس خوش فکر و متخصصی، دوست داری در محیطی جوان و پویا مسیر رشد رو طی کنی، و خودت رو مناسب موقعیت شغلی مورد نیاز ما می دونی؛ باعث خوشحالی ماست که رزومه شما رو داشته باشیم.<br /><br />مسئولیت&zwnj;ها:<br /><br />تحلیل، طراحی و توسعه&zwnj;ی سرویس&zwnj;های Backend برای محصولات و پلتفرم&zwnj;های ابری شرکت با تمرکز بر کیفیت و تحویل سریع<br />ارائه راه&zwnj;حل برای ساختار سیستم، طراحی پایگاه&zwnj;داده و لایه&zwnj;ی ذخیره&zwnj;سازی با در نظر گرفتن مقیاس و پایداری<br />تصمیم&zwnj;گیری روی مرز ماژول&zwnj;ها در معماری Modular Monolith و DDD و حفظ سلامت boundary بین domainها<br />طراحی و پیاده&zwnj;سازی با اولویت رعایت اصول امنیتی (IDOR، OWASP، Gate، Policy)<br />استفاده&zwnj;ی موثر و هوشمندانه از ابزارهای AI (Cursor، Copilot، Claude ) برای افزایش سرعت توسعه، تست،code review و دیباگ<br />پیاده&zwnj;سازی ماژول&zwnj;های قابل استفاده&zwnj;ی مجدد و کدنویسی تمیز و قابل تست<br />توانایی بررسی و دیباگ سیستم در محیط پروداکشن و رفع bottleneckهای performance و امنیتی<br />مشارکت در code review با تمرکز ویژه روی مسائل امنیتی و authorization، و نهادینه&zwnj;سازی workflowهای AI-assisted در تیم<br />طراحی API امن و همکاری نزدیک با تیم Frontend روی contract و یکپارچه&zwnj;سازی<br /><br /><br />مهارت&zwnj;های مورد نیاز:<br /><br />تسلط به زبان PHP و فرم ورک Laravel<br />تسلط به مفاهیم طراحی نرم&zwnj;افزار، پایگاه داده&zwnj;ها و الگوهای معماری<br />شناخت کافی از معماری&zwnj;های Modular Monolith و Service-based و آشنایی با Domain-Driven Design<br />تسلط به مباحث پایه&zwnj;ی امنیت در توسعه&zwnj;ی Web و APIشامل شناخت دقیق IDOR و توانایی طراحی کنترل دسترسی resource-level و تفکیک دقیق Authentication و Authorization و پیاده&zwnj;سازی صحیح آن<br />تجربه&zwnj;ی عملی استفاده از ابزارهای AI برای کدنویسی Cursor) ، Copilot،Claude ) توانایی نوشتنprompt موثر<br />آشنایی با Redis در نقش cache، queue و lock<br />توانایی طراحی و نوشتن تست (unit / feature)<br />تسلط به Git و gitflow<br />تسلط به دستورات CLI در لینوکس<br />آشنایی با Docker و درک مفاهیم containerization<br />آشنایی با CI/CD و فرآیندهای deploy خودکار<br />داشتن دید نسبت به زیرساخت&zwnj;های ابری (شبکه، مجازی&zwnj;سازی، storage) مزیت محسوب می&zwnj;شود<br />آشنایی با مباحث امنیتی محیط&zwnj;های multi-tenant مزیت محسوب می&zwnj;شود<br />آشنایی با NoSql (MongoDB, Elasticsearch) مزیت محسوب میشود<br />آشنایی با زبان&zwnj;های Backend دیگر مانند Go و Node.js مزیت محسوب می&zwnj;شود<br />آشنایی با فریم&zwnj;ورک&zwnj;های Frontend مزیت محسوب می&zwnj;شود<br />تجربه&zwnj;ی mentoring و رهبری فنی تیم مزیت محسوب می&zwnj;شود<br /><br /><br />سایر شرایط:<br />روز و ساعات کاری: شنبه تا چهارشنبه از ساعت 8 تا 16:45 با دو ساعت تایم شناور<br /><br /><br />مزایای همکاری با پارس پک:<br /><br />دورکاری<br />امکان امریه دانش بنیان<br />بیمه تکمیلی با پوشش درمانی خوب<br />فرصت کسب تجربه در کنار تیمی حرفه ای و صمیمی<br />محیط کاری امن و زمینه مناسب جهت رشد و پیشرفت</p>",
+      "location_text": "Tehran",
+      "location_text_farsi": "تهران",
+      "is_show_salary": false,
+      "is_translated_by_machine": false,
+      "language": "fa",
+      "is_precept": true,
+      "work_type": "remote",
+      "salary_from": null,
+      "salary_to": null,
+      "status": {
+        "id": 170,
+        "title": "Live-approved"
+      },
+      "is_applied": false,
+      "job_category": [
+        {
+          "title_farsi": "فناوری اطلاعات - مهندسی کامپیوتر نرم افزار و توسعه وب",
+          "id": 235,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development"
+        },
+        {
+          "title_farsi": "فناوری اطلاعات / توسعه نرم‌افزار و برنامه نویسی",
+          "id": 356,
+          "title": "IT - Software & Web Development",
+          "slug": "it-software-web-development-filter"
+        }
+      ],
+      "is_saved": false,
+      "is_anonymous": false,
+      "employer": {
+        "name_farsi": "پارس پک",
+        "is_startup": false,
+        "industry_id": "257",
+        "is_responsive": true,
+        "logo_path": "https://minio1.sc.irtalent.cloud/employer-logo/employer_logo_3050Wp6_5eeef36c997dd.jpeg",
+        "name": "Parspack",
+        "title_farsi": "پارس پک",
+        "id": 17704,
+        "title": "ParsPack",
+        "slug": "parspack"
+      },
+      "location": {
+        "id": 216,
+        "title": "Tehran",
+        "title_farsi": "تهران",
+        "parent": {
+          "id": 2
+        }
+      },
+      "matched_by": null,
+      "matched_by_name": null,
+      "matched_by_applied": false,
+      "seniority": [
+        {
+          "title_farsi": "کارشناس ارشد / متخصص",
+          "id": 273,
+          "title": "Experienced professional",
+          "slug": "experienced-professional"
+        }
+      ],
+      "jobfair": null,
+      "employment_type": {
+        "title_farsi": "تمام وقت",
+        "id": 186,
+        "title": "Full Time",
+        "slug": "Full-Time-employment-type"
+      },
+      "promote_in_search": [],
+      "is_premium_employer": true,
+      "is_startup": false,
+      "redirection_url": null,
+      "is_crawler": false
+    }
+  ]
+}

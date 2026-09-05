@@ -25,6 +25,8 @@ export class SourceHttpError extends Error {
 
 export interface HttpClient {
   requestJson<T>(url: string, options?: JsonRequestOptions): Promise<T>;
+  /** Fetch a page as raw text (SSR HTML sources). */
+  requestText(url: string, options?: JsonRequestOptions): Promise<string>;
 }
 
 export class UndiciHttpClient implements HttpClient {
@@ -35,11 +37,50 @@ export class UndiciHttpClient implements HttpClient {
   constructor(opts: { baseUrl: string; headers?: Record<string, string>; timeoutMs?: number }) {
     this.baseUrl = opts.baseUrl.replace(/\/+$/, '');
     this.defaultHeaders = {
-      accept: 'application/json',
+      accept: 'application/json, text/html',
       'user-agent': 'JobHunter/0.1 (+https://github.com/jobhunter)',
       ...opts.headers,
     };
     this.timeoutMs = opts.timeoutMs ?? 15000;
+  }
+
+  async requestText(url: string, options: JsonRequestOptions = {}): Promise<string> {
+    const fullUrl = url.startsWith('http') ? url : `${this.baseUrl}${url}`;
+    const timeoutMs = options.timeoutMs ?? this.timeoutMs;
+    const retries = options.retries ?? 1;
+
+    let lastError: unknown;
+    for (let attempt = 0; attempt <= retries; attempt++) {
+      try {
+        const { request } = await import('undici');
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        try {
+          const res = await request(fullUrl, {
+            method: 'GET',
+            headers: { ...this.defaultHeaders, ...options.headers },
+            signal: controller.signal,
+          });
+          const text = await res.body.text();
+          if (res.statusCode >= 400) {
+            throw new SourceHttpError(
+              `HTTP ${res.statusCode} for ${fullUrl}`,
+              res.statusCode,
+              fullUrl,
+            );
+          }
+          return text;
+        } finally {
+          clearTimeout(timer);
+        }
+      } catch (err) {
+        lastError = err;
+        if (err instanceof SourceHttpError && err.status >= 400 && err.status < 500) throw err;
+        if (attempt === retries) break;
+        await sleep(500 * (attempt + 1));
+      }
+    }
+    throw lastError instanceof Error ? lastError : new Error(String(lastError));
   }
 
   async requestJson<T>(url: string, options: JsonRequestOptions = {}): Promise<T> {
