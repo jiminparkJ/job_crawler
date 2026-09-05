@@ -118,9 +118,9 @@ export async function startServer(): Promise<FastifyInstance> {
   const env = loadEnv();
   const { app, prisma } = await buildApp();
   const port: number = env.PORT;
-  await app.listen({ port, host: '0.0.0.0' });
   app.addHook('onClose', async () => {
     await prisma.$disconnect();
   });
+  await app.listen({ port, host: '0.0.0.0' });
   return app;
 }

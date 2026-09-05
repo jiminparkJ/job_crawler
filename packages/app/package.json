@@ -20,6 +20,7 @@
   "dependencies": {
     "@job-hunter/core": "workspace:*",
     "@prisma/client": "^6.5.0",
+    "dotenv": "^17.4.2",
     "fastify": "^5.2.1",
     "fastify-plugin": "^5.0.1",
     "mammoth": "^1.12.2",
