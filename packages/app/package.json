@@ -9,6 +9,7 @@
     "ingest": "tsx src/cli/ingest.ts",
     "profile": "tsx src/cli/profile.ts",
     "match": "tsx src/cli/match.ts",
+    "notify": "tsx src/cli/notify.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
