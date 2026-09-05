@@ -49,9 +49,19 @@ pnpm dev                        # API + scheduler worker (collect→match→noti
 ### Tests
 
 ```bash
-pnpm test          # 23 files, 179 tests (DB integration requires TEST_DATABASE_URL)
-pnpm lint && pnpm -r run typecheck && pnpm format:check
+# one-time: create the isolated test database
+docker exec jobhunter-postgres psql -U jobhunter -c "CREATE DATABASE jobhunter_test OWNER jobhunter;"
+DATABASE_URL="postgresql://jobhunter:jobhunter@localhost:5432/jobhunter_test?schema=public" \
+  pnpm --filter @job-hunter/app exec prisma migrate deploy
+
+# run the suite (24 files / 185 tests) against the TEST database — never the dev one
+TEST_DATABASE_URL="postgresql://jobhunter:jobhunter@localhost:5432/jobhunter_test?schema=public" \
+DATABASE_URL="postgresql://jobhunter:jobhunter@localhost:5432/jobhunter_test?schema=public" \
+  pnpm test
 ```
+
+**Important:** always set `TEST_DATABASE_URL` to `jobhunter_test` — integration tests
+delete/recreate rows and will wipe real data if pointed at the dev database.
 
 ## How it works
 

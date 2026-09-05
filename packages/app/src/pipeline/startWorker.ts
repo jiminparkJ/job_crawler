@@ -75,6 +75,15 @@ export async function startWorker(options: WorkerStartupOptions): Promise<Runnin
       pageSize: options.pageSize ?? 20,
       maxPages: options.maxPages ?? 3,
       irantalentCategories: options.irantalentCategories,
+      matchAndNotify: true,
+      ...(options.telegram?.botToken && options.telegram.chatId
+        ? {
+            telegram: {
+              botToken: options.telegram.botToken,
+              chatId: options.telegram.chatId,
+            },
+          }
+        : {}),
     },
     options.logger,
   );

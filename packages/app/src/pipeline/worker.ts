@@ -20,6 +20,13 @@ export interface WorkerTickingOptions {
   pageSize: number;
   maxPages: number;
   irantalentCategories?: string[];
+  /** Run matching + notification stages after collection (default true). */
+  matchAndNotify?: boolean;
+  /** Telegram credentials for the notification stage. */
+  telegram?: {
+    botToken: string;
+    chatId: string;
+  };
 }
 
 /** Default worker tick options — every value overridable from config. */
@@ -87,7 +94,57 @@ export function createWorkerTick(
       });
     }
 
-    return runAllCollections(runners, logger);
+    const collectionResults = await runAllCollections(runners, logger);
+
+    // Full pipeline per tick: collect → match → (personalize) → notify.
+    if (options.matchAndNotify !== false) {
+      try {
+        const { MatchService } = await import('./matching.js');
+        const { PersonalizationEngine } = await import('../personalization/engine.js');
+        const { NotificationService } = await import('../telegram/notificationService.js');
+        const { TelegramBotClient } = await import('../telegram/client.js');
+        const { CandidateProfileService } = await import('../resume/candidateProfileService.js');
+
+        const matcher = new MatchService(prisma);
+        const resume = new CandidateProfileService(prisma);
+
+        // Match per user that owns an active search profile.
+        const users = await prisma.user.findMany({
+          where: { searchProfiles: { some: { active: true } } },
+          select: { id: true },
+        });
+        for (const u of users) {
+          const candidate = await resume.getProfile(u.id);
+          await matcher.runMatching({ userId: u.id, candidate });
+          const pers = new PersonalizationEngine(prisma);
+          await pers.rerank(u.id);
+        }
+
+        // Notify (only when Telegram is configured).
+        if (options.telegram?.botToken && options.telegram.chatId) {
+          const telegram = new TelegramBotClient(
+            new UndiciHttpClient({ baseUrl: 'https://api.telegram.org' }),
+            options.telegram.botToken,
+          );
+          const notifier = new NotificationService({
+            prisma,
+            telegram,
+            chatId: options.telegram.chatId,
+            logger,
+          });
+          const notifyStats = await notifier.notifyPendingMatches(20);
+          logger?.info({ ...notifyStats }, 'notifications sent');
+        }
+      } catch (err) {
+        // Match/notify failures never break collection reporting.
+        logger?.error(
+          { err: err instanceof Error ? err.message : String(err) },
+          'match/notify stage failed',
+        );
+      }
+    }
+
+    return collectionResults;
   };
 }
 
