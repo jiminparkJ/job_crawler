@@ -158,9 +158,9 @@ export class MatchService {
   }
 
   /** Matches ready for notification: status 'new' and score ≥ threshold. */
-  async pendingNotificationMatches(limit = 50): Promise<
-    { id: string; jobId: string; score: number }[]
-  > {
+  async pendingNotificationMatches(
+    limit = 50,
+  ): Promise<{ id: string; jobId: string; score: number }[]> {
     return this.prisma.jobMatch.findMany({
       where: { status: 'new' },
       orderBy: [{ score: 'desc' }, { createdAt: 'asc' }],
