@@ -23,6 +23,7 @@ Autonomous job-hunting assistant: collects jobs from Iranian job boards (JobVisi
 13. [Testing](#13-testing)
 14. [How the pipeline works](#14-how-the-pipeline-works)
 15. [Troubleshooting](#15-troubleshooting)
+16. [Deployment (production)](#16-deployment-production)
 
 ---
 
@@ -167,7 +168,7 @@ The first pipeline run starts **immediately** (not after 45 min). Keep the
 terminal open; `Ctrl+C` stops everything cleanly.
 
 > The app is a single process: API + scheduler + Telegram listener. To run it
-> in the background instead, see §14 (deployment).
+> in production (background, auto-restart), see §16 (deployment).
 
 ## 8. Feed in your data
 
@@ -359,6 +360,53 @@ Key behaviors:
 | `pnpm test` fails with connection errors                    | Postgres was restarting — wait 10s and re-run; ensure `TEST_DATABASE_URL` points at `jobhunter_test`.                                                                                                |
 | Old notifications re-appear                                 | They can't — per-job dedup is enforced by a DB constraint. Check `Notification` table.                                                                                                               |
 | Prisma "migration failed" on new machine                    | Apply §5 step 1 again; migrations are idempotent.                                                                                                                                                    |
+
+## 16. Deployment (production)
+
+Two ways to run this beyond dev mode:
+
+### A. Compiled build (pm2 / systemd / any process manager)
+
+```bash
+pnpm build                                   # compiles packages/app → dist/
+DATABASE_URL="...your production postgres..." \
+TELEGRAM_BOT_TOKEN=... TELEGRAM_CHAT_ID=... \
+  pnpm --filter @job-hunter/app start        # = node dist/main.js
+```
+
+With pm2: `pm2 start packages/app/dist/main.js --name job-hunter` (env vars
+from `ecosystem.config.js` or a loaded `.env` — `dotenv` reads the repo-root
+`.env` at startup). `SIGINT/SIGTERM` are handled: scheduler stops, listener
+stops, Prisma disconnects cleanly.
+
+### B. Docker Compose (app + postgres)
+
+```bash
+# set real values in .env first (the compose file reads them)
+docker compose up -d --build
+```
+
+This starts `postgres` (with a persistent volume) and the `app` container,
+applies nothing automatically — run migrations once after first start:
+
+```bash
+docker compose exec app pnpm exec prisma migrate deploy
+# or from the host:
+DATABASE_URL="postgresql://jobhunter:jobhunter@localhost:5432/jobhunter?schema=public" \
+  pnpm --filter @job-hunter/app exec prisma migrate deploy
+```
+
+Health checks: `curl http://<host>:3000/health` and `/ops/sources/health`.
+
+### Production checklist
+
+- [ ] `NODE_ENV=production` in `.env` (structured JSON logs, no pretty printing)
+- [ ] Real Postgres URL with a non-default password (`POSTGRES_PASSWORD`)
+- [ ] `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID` set
+- [ ] Migrations applied (`prisma migrate deploy` — never `db push` in prod)
+- [ ] Optional: `OPENAI_API_KEY` for semantic ranking
+- [ ] Restart policy: compose has it; pm2/systemd provide it natively
+- [ ] Logs: pino writes JSON to stdout — pipe to your log stack
 
 ---
 
