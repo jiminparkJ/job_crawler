@@ -1,21 +1,34 @@
 import { startServer } from './server.js';
 import { loadEnv } from './config.js';
+import { startWorker } from './pipeline/startWorker.js';
+import { createLogger } from './logger.js';
 
 const env = loadEnv();
+const logger = createLogger(env.LOG_LEVEL, env.NODE_ENV === 'development');
 
-startServer()
-  .then((app) => {
-    const goodbye = async (signal: string) => {
-      app.log.info({ signal }, 'shutting down');
-      await app.close();
-      process.exit(0);
-    };
-    process.on('SIGINT', () => void goodbye('SIGINT'));
-    process.on('SIGTERM', () => void goodbye('SIGTERM'));
-    app.log.info(`Job Hunter API listening on port ${env.PORT}`);
-  })
-  .catch((err) => {
-    // eslint-disable-next-line no-console -- startup failure before logger exists
-    console.error('Failed to start server', err);
-    process.exit(1);
+async function main() {
+  const server = await startServer();
+  logger.info(`Job Hunter API listening on port ${env.PORT}`);
+
+  const worker = await startWorker({
+    intervalMinutes: env.POLL_INTERVAL_MINUTES,
+    jobvisionEnabled: env.JOBVISION_ENABLED,
+    irantalentEnabled: env.IRANTALENT_ENABLED,
+    keywords: ['node.js', 'backend', 'developer'],
+    logger,
   });
+
+  const shutdown = async (signal: string) => {
+    logger.info({ signal }, 'shutting down');
+    await worker.stop();
+    await server.close();
+    process.exit(0);
+  };
+  process.on('SIGINT', () => void shutdown('SIGINT'));
+  process.on('SIGTERM', () => void shutdown('SIGTERM'));
+}
+
+main().catch((err) => {
+  logger.error({ err }, 'failed to start');
+  process.exit(1);
+});
