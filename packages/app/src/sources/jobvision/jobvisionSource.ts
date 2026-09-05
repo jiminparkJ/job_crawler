@@ -245,6 +245,15 @@ export class JobVisionSource {
       .map((s) => s.trim())
       .filter((s) => s.length > 0);
 
+    // JobVision salaries arrive in millions of TOMANS (e.g. min: 40, max: 60
+    // meaning 40–60 million Tomans). Normalize to RIALS (IRR, official ISO
+    // code, 1 Toman = 10 Rials) so every source stores one unit.
+    const salaryToRials = (v: number | null | undefined): number | null =>
+      v == null ? null : Math.round(v * 1_000_000 * 10);
+
+    const salaryMinRials = salaryToRials(raw.salary?.min);
+    const salaryMaxRials = salaryToRials(raw.salary?.max);
+
     return {
       id: `jobvision:${id}`,
       source: this.id,
@@ -255,9 +264,9 @@ export class JobVisionSource {
       location,
       remote,
       employmentType,
-      salaryMin: raw.salary?.min ?? null,
-      salaryMax: raw.salary?.max ?? null,
-      salaryCurrency: raw.salary?.min != null || raw.salary?.max != null ? 'IRT' : null,
+      salaryMin: salaryMinRials,
+      salaryMax: salaryMaxRials,
+      salaryCurrency: salaryMinRials != null || salaryMaxRials != null ? 'IRR' : null,
       postedAt: postedAt && !Number.isNaN(postedAt.getTime()) ? postedAt : null,
       url: this.jobUrl(id),
       skills,
@@ -277,6 +286,7 @@ export class JobVisionSource {
       skills: detailSkills.length > 0 ? detailSkills : listSkills,
       employmentType: fromList.employmentType ?? fromDetail.employmentType,
       remote: fromList.remote ?? fromDetail.remote,
+      // Salary may come from either side; both are already Rials.
       salaryMin: fromList.salaryMin ?? fromDetail.salaryMin,
       salaryMax: fromList.salaryMax ?? fromDetail.salaryMax,
       salaryCurrency: fromList.salaryCurrency ?? fromDetail.salaryCurrency,

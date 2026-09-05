@@ -79,6 +79,15 @@ describe('formatSalary', () => {
     expect(formatSalary(1_000_000_000, null, 'IRR')).toBe('from 100 T');
   });
 
+  it('displays half-million Tomans values with one decimal', () => {
+    expect(formatSalary(455_000_000, null, 'IRR')).toBe('from 45.5 T');
+  });
+
+  it('JobVision-stored values (converted to IRR) display correctly', () => {
+    // JobVision source 40 (M Tomans) → stored 400,000,000 IRR → "40 T"
+    expect(formatSalary(400_000_000, 700_000_000, 'IRR')).toBe('40-70 T');
+  });
+
   it('passes through other currencies', () => {
     expect(formatSalary(1000, 2000, 'USD')).toBe('1,000-2,000 USD');
     expect(formatSalary(null, null, null)).toBeNull();

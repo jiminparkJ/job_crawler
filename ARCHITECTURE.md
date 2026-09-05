@@ -54,7 +54,7 @@ Fastify: /health · /ops/sources/health · /ops/matches/pending · /ops/matches/
 - `server.ts` — Fastify factory: health, ops endpoints (source health, pending matches, validated status transitions). `main.ts` boots API + worker with graceful shutdown.
 - `prisma/schema.prisma` — models per PROMPT §9 (User, CandidateProfile, SearchProfile, JobSource, Job, JobSourceListing, JobMatch, Notification, Feedback, SourceRun); uniques: `(sourceId, externalId)` on Job+Listing, `logicalKey` on Job, `(userId, jobId, channel)` on Notification, `(jobId, searchProfileId)` on JobMatch; cascades on User/Job/SearchProfile deletes.
 - `sources/http.ts` — `HttpClient` abstraction (`requestJson`/`requestText`) + `UndiciHttpClient` (timeout, transient retry, never 4xx-retry). Adapters receive the client (unit-testable, no live network).
-- `sources/jobvision/` — public candidate API adapter (camelCase body, numeric sortBy, workType/internship/remote mapping, salary in million Tomans (IRT), HTML stripping, list+detail merge).
+- `sources/jobvision/` — public candidate API adapter (camelCase body, numeric sortBy, workType/internship/remote mapping, salary million-Tomans → Rials conversion, HTML stripping, list+detail merge).
 - `sources/irantalent/` — SSR-page adapter (brace-matched embedded JSON from `serverSideSearchResult` / `ng-state`; anonymous employers; Rial salaries (IRR); category-slug pagination).
 - `sources/linkedin/` — permitted email-alert ingestion: injected `loadEmails()` provider, sender/subject heuristics, job-link extraction, subject-based normalization. No scraping/login/anti-bot handling.
 - `resume/` — PDF (pdf-parse v2) / DOCX (mammoth) / TXT extraction with clear errors (scanned/empty/binary); `CandidateProfileService` (ingest → analyze → upsert profile row).
@@ -77,7 +77,7 @@ Fastify: /health · /ops/sources/health · /ops/matches/pending · /ops/matches/
 - **LinkedIn email-only**: strictly the user-configured alert flow; job details are never fetched from LinkedIn itself.
 - **AI-optional scoring**: semantic weight redistributes to keyword/preference when AI is off/failing; AI only sees rule-floor-passing candidates (cost control); failures map to explicit reasons.
 - **Crash safety**: notifications create a `pending` row before sending; scheduler state lives in SourceRun rows (stale ones closed at startup); all pipeline steps idempotent.
-- **Salary units**: JobVision stores million Tomans (`IRT`), IranTalent stores Rials (`IRR`); the Telegram formatter converts IRR→Tomans for display.
+- **Salary units (unified)**: every source stores salaries in **Rials** with `salaryCurrency: 'IRR'` — JobVision's million-Toman values are converted at normalization (× 10,000,000). The Telegram formatter converts IRR→millions of Tomans for display ("45-60 T").
 
 ## Testing strategy (PROMPT §15)
 

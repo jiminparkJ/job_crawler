@@ -154,13 +154,24 @@ describe('JobVisionSource.normalize', () => {
       externalId: '1492135',
       title: 'برنامه نویس Back-End (Node.js)',
       employmentType: 'full_time',
-      salaryMin: 40,
-      salaryMax: 70,
-      salaryCurrency: 'IRT',
+      // Source salary 40–70 (million Tomans) → stored as Rials (IRR):
+      // 40M Tomans = 400,000,000 Rials
+      salaryMin: 400_000_000,
+      salaryMax: 700_000_000,
+      salaryCurrency: 'IRR',
       url: 'https://jobvision.ir/jobs/1492135',
     });
     expect(job.postedAt).toBeInstanceOf(Date);
     expect(job.company.length).toBeGreaterThan(0);
+  });
+
+  it('stores salaries uniformly in IRR across both sources (unit parity)', () => {
+    // JobVision 40M Tomans and IranTalent 400,000,000 Rials must be equal.
+    const jvRow = listRow(1492135); // 40–70 in source units
+    const jv = src.normalize(jvRow);
+    const itEquivalent = { salaryMin: 400_000_000, salaryCurrency: 'IRR' };
+    expect(jv.salaryMin).toBe(itEquivalent.salaryMin);
+    expect(jv.salaryCurrency).toBe('IRR');
   });
 
   it('normalizes a detail payload including skills and description', () => {

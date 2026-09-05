@@ -17,15 +17,25 @@ export interface MatchNotificationData {
   sources: string[];
 }
 
+/**
+ * Format stored salary (always IRR — Rials) for the Telegram message,
+ * displayed in millions of Tomans: "45-60 T" means 45–60 million Tomans.
+ */
 export function formatSalary(
   min: number | null,
   max: number | null,
   currency: string | null,
 ): string | null {
   if (min == null && max == null) return null;
-  const cur = currency === 'IRR' ? 'T' : (currency ?? '');
+  // Storage unit: IRR (Rials). 1 million Tomans = 10,000,000 Rials.
+  const inTomansMillions = (v: number) => v / 10_000_000;
   const fmt = (v: number) =>
-    currency === 'IRR' ? (v / 10_000_000).toString() : v.toLocaleString('en-US');
+    currency === 'IRR'
+      ? Number.isInteger(inTomansMillions(v))
+        ? inTomansMillions(v).toString()
+        : inTomansMillions(v).toFixed(1)
+      : v.toLocaleString('en-US');
+  const cur = currency === 'IRR' ? 'T' : (currency ?? '');
   const base =
     min != null && max != null
       ? `${fmt(min)}-${fmt(max)}`

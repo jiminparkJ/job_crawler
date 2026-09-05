@@ -134,7 +134,7 @@ Company page URL: `https://jobvision.ir{company.pageUrl}`.
 | `properties.isRemote`/`isRemote`                              | `remote: 'remote' \| null` (hybrid/onsite not modeled by JobVision)                      |
 | `workType.titleEn` (List) or typeId map                       | `employmentType`: Full Time→`full_time`, Part Time→`part_time`, Project-Based→`contract` |
 | `isInternship`                                                | override `employmentType = 'internship'` when true                                       |
-| `salary.min/max`                                              | `salaryMin/salaryMax` (store as million Tomans; `salaryCurrency: 'IRT'`)                 |
+| `salary.min/max`                                              | `salaryMin/salaryMax` (converted to Rials: ×10,000,000; `salaryCurrency: 'IRR'`)         |
 | `activationTime.date`                                         | `postedAt`                                                                               |
 | `softwareRequirements[].software.titleEn`                     | `skills`                                                                                 |
 
