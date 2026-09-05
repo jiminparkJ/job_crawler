@@ -53,7 +53,11 @@ export interface TgUpdate {
     data: string;
     message?: { chat: { id: number }; message_id: number };
   };
-  message?: { chat: { id: number }; text?: string };
+  message?: {
+    chat: { id: number };
+    text?: string;
+    from?: { id: number; username?: string; first_name?: string };
+  };
 }
 
 export class TelegramBotClient implements TelegramClient {

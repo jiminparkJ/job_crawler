@@ -1,14 +1,16 @@
 /**
  * Telegram update listener: polls getUpdates (no webhook infrastructure
- * needed — PROMPT §13 "no queue"), processes callback queries from the
- * Save / Not Relevant buttons, and acknowledges them so the button spinner
- * stops. Runs alongside the scheduler; failures never crash the app.
+ * needed — PROMPT §13 "no queue"), processes:
+ *   - callback queries from the Save / Not Relevant buttons
+ *   - text commands (/profile, /set, /clear, /pause, /resume, /help)
+ * Failures never crash the app.
  */
 
 import type { Logger } from 'pino';
 import type { TelegramClient } from './client.js';
 import type { NotificationService } from './notificationService.js';
 import { acknowledgedKeyboard } from './messages.js';
+import type { ProfileBotCommands } from './profileCommands.js';
 
 export interface TelegramListenerStats {
   processed: number;
@@ -16,6 +18,7 @@ export interface TelegramListenerStats {
   saved: number;
   notRelevant: number;
   ignored: number;
+  commands: number;
 }
 
 export class TelegramUpdateListener {
@@ -25,7 +28,11 @@ export class TelegramUpdateListener {
   constructor(
     private readonly telegram: TelegramClient,
     private readonly notifications: NotificationService,
-    private readonly options: { pollMs?: number; logger?: Logger } = {},
+    private readonly options: {
+      pollMs?: number;
+      logger?: Logger;
+      profileCommands?: ProfileBotCommands;
+    } = {},
   ) {}
 
   /** Poll once: fetch new updates, process callbacks, advance the offset. */
@@ -36,6 +43,7 @@ export class TelegramUpdateListener {
       saved: 0,
       notRelevant: 0,
       ignored: 0,
+      commands: 0,
     };
 
     const updates = await this.telegram.getUpdates(this.offset != null ? this.offset : undefined);
@@ -44,6 +52,28 @@ export class TelegramUpdateListener {
       stats.processed++;
       // Advance offset past this update so Telegram drops it from the queue.
       this.offset = update.update_id + 1;
+
+      // Text commands (/profile, /set, ...) — handled by ProfileBotCommands.
+      const msg = update.message;
+      if (msg?.text?.startsWith('/') && this.options.profileCommands) {
+        try {
+          const reply = await this.options.profileCommands.handle(msg.text, msg.from?.id ?? 0);
+          await this.telegram.sendMessage({
+            chatId: String(msg.chat.id),
+            text: reply,
+            parseMode: 'HTML',
+            disableWebPagePreview: true,
+          });
+          stats.commands++;
+        } catch (err) {
+          this.options.logger?.warn(
+            { err: err instanceof Error ? err.message : String(err) },
+            'command handling failed',
+          );
+          stats.ignored++;
+        }
+        continue;
+      }
 
       const cb = update.callback_query;
       if (!cb) continue;

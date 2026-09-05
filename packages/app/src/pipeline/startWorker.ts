@@ -103,6 +103,7 @@ export async function startWorker(options: WorkerStartupOptions): Promise<Runnin
     const { TelegramBotClient } = await import('../telegram/client.js');
     const { NotificationService } = await import('../telegram/notificationService.js');
     const { TelegramUpdateListener } = await import('../telegram/updateListener.js');
+    const { ProfileBotCommands } = await import('../telegram/profileCommands.js');
 
     const telegram = new TelegramBotClient(
       new UndiciHttpClient({ baseUrl: 'https://api.telegram.org' }),
@@ -117,6 +118,7 @@ export async function startWorker(options: WorkerStartupOptions): Promise<Runnin
     telegramListener = new TelegramUpdateListener(telegram, notifications, {
       pollMs: 5_000,
       logger: options.logger,
+      profileCommands: new ProfileBotCommands(prisma),
     });
     telegramListener.start();
   }
