@@ -1,0 +1,106 @@
+ARMIN RAHIMI
+Software Engineer | Full-Stack Developer
+Baku, Azerbaijan | +994 50 555 2741 | armin.rahimi@example.com
+LinkedIn: linkedin.com/in/armin-rahimi | GitHub: github.com/arminrahimi
+
+PROFESSIONAL SUMMARY
+Software engineer with 4+ years of experience building full-stack web applications,
+REST APIs, automation systems, and data-driven platforms. Strong background in
+JavaScript/TypeScript, Node.js, React, PostgreSQL, API integration, and Linux.
+Experienced in turning business requirements into maintainable technical solutions,
+improving application performance, and automating repetitive workflows.
+
+TECHNICAL SKILLS
+Languages: JavaScript, TypeScript, SQL, HTML, CSS, Bash
+Frontend: React, Next.js, Responsive Web Design, Tailwind CSS
+Backend: Node.js, Express.js, Fastify, REST APIs, WebSockets
+Databases: PostgreSQL, MySQL, SQLite, Redis
+DevOps & Tools: Git, GitHub, Docker, Linux, Nginx, VS Code
+Other: API Integration, Web Scraping, Automation, Data Processing, System Design
+
+WORK EXPERIENCE
+
+Senior Software Engineer
+Nexa Digital Solutions — Baku, Azerbaijan
+March 2024 – Present
+- Designed and developed full-stack web applications using TypeScript, React, and Node.js.
+- Built REST APIs handling more than 500,000 requests per month.
+- Designed PostgreSQL database schemas and optimized complex SQL queries.
+- Reduced average API response time by approximately 35% through caching and query optimization.
+- Integrated payment, authentication, notification, and third-party business APIs.
+- Built internal automation tools that reduced repetitive manual operations by approximately 60%.
+- Participated in architecture decisions, code reviews, testing, and technical documentation.
+
+Software Developer
+Caspian Technology Group — Baku, Azerbaijan
+July 2022 – February 2024
+- Developed frontend and backend features for enterprise web applications.
+- Created reusable React components and responsive interfaces for desktop and mobile.
+- Developed Node.js services and REST APIs for internal and customer-facing applications.
+- Worked with PostgreSQL and Redis for application data and caching.
+- Implemented authentication, authorization, validation, logging, and error handling.
+- Created Bash and JavaScript automation scripts for data processing and reporting.
+- Collaborated with designers, product managers, and QA engineers throughout the development lifecycle.
+
+Junior Web Developer
+Digital Horizon LLC — Baku, Azerbaijan
+September 2021 – June 2022
+- Developed responsive websites using HTML, CSS, JavaScript, and React.
+- Converted UI designs into reusable and accessible web components.
+- Fixed frontend bugs and improved browser compatibility.
+- Worked with REST APIs and JSON-based data sources.
+- Used Git and GitHub for version control and collaborative development.
+
+SELECTED PROJECTS
+
+Automated Job Discovery Platform
+Personal Project | 2026
+- Developed a platform for collecting and organizing job opportunities from multiple job boards.
+- Designed database models for jobs, companies, users, applications, and saved searches.
+- Implemented job deduplication, filtering, search, and automated data processing.
+- Built the backend with Node.js and PostgreSQL and created a responsive web dashboard.
+
+Cryptocurrency Exchange Integration Platform
+Personal Project | 2025
+- Developed a modular service for integrating cryptocurrency exchange APIs.
+- Implemented market-data retrieval, account balances, authentication, and trading operations.
+- Added validation, structured error handling, retry logic, and rate-limit protection.
+- Designed the system so additional exchange integrations could be added without changing core services.
+
+Persian FinTech Presentation System
+Personal Project | 2025
+- Created a Persian RTL presentation system using HTML, CSS, and JavaScript.
+- Implemented responsive layouts, custom typography, financial data tables, and charts.
+- Created brand-specific visual themes and optimized layouts for high-quality printing.
+- Added support for offline assets and locally hosted fonts.
+
+EDUCATION
+
+Bachelor of Science in Computer Engineering
+Baku Engineering University — Baku, Azerbaijan
+2017 – 2021
+
+CERTIFICATIONS
+
+- JavaScript Algorithms and Data Structures — freeCodeCamp, 2023
+- Meta Front-End Developer Professional Certificate — Coursera, 2023
+- SQL for Data Science — Coursera, 2022
+
+LANGUAGES
+
+- Persian: Native
+- English: Professional Working Proficiency
+- Azerbaijani: Professional Working Proficiency
+- Turkish: Conversational
+
+ADDITIONAL INFORMATION
+
+- Work authorization: Azerbaijan
+- Preferred work arrangement: Remote / Hybrid
+- Availability: Full-time
+- Areas of interest: Backend Development, Full-Stack Development, APIs,
+  Automation, Distributed Systems, FinTech, and Developer Tools
+
+REFERENCES
+
+Available upon request.
