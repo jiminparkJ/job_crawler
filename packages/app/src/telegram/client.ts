@@ -15,8 +15,12 @@ export interface TelegramMessageOptions {
   replyMarkup?: TelegramInlineKeyboard;
 }
 
+/** Telegram inline keyboard: buttons are either callback or URL buttons. */
 export interface TelegramInlineKeyboard {
-  inline_keyboard: { text: string; callback_data: string }[][];
+  inline_keyboard: (
+    | { text: string; callback_data: string; url?: never }
+    | { text: string; url: string; callback_data?: never }
+  )[][];
 }
 
 export interface TelegramSendMessageResult {

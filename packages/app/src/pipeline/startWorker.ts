@@ -122,6 +122,15 @@ export async function startWorker(options: WorkerStartupOptions): Promise<Runnin
       logger: options.logger,
       profileCommands: new ProfileBotCommands(prisma),
       settingsMenu,
+      jobUrlForMatch: async (matchId) => {
+        const m = await prisma.jobMatch
+          .findUnique({
+            where: { id: matchId },
+            select: { job: { select: { canonicalUrl: true } } },
+          })
+          .catch(() => null);
+        return m?.job.canonicalUrl;
+      },
     });
     // Record the Telegram chat id on the profile owner so bot commands can
     // map the chat to the right user (multi-user ready).

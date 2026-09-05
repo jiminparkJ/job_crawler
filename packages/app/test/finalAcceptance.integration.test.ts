@@ -338,12 +338,16 @@ d('FINAL ACCEPTANCE — end-to-end pipeline (PROMPT §18)', () => {
 
     const message = tg.sent.find((m) => m.text.includes(GOOD_IT_TITLE));
     expect(message).toBeDefined();
-    expect(message!.text).toMatch(/MATCH/);
+    expect(message!.text).toContain('🚀 <b>');
+    expect(message!.text).toContain('Strong match');
     expect(message!.text).toContain('Acceptance Test Co');
-    expect(message!.text).toContain('50-80 T'); // IRR → Tomans
-    expect(message!.text).toContain('Tehran · Remote');
-    expect(message!.text).toContain('🔗 View Job');
-    expect(message!.replyMarkup).toBeDefined();
+    expect(message!.text).toContain('50–80 M T'); // IRR → millions of Tomans
+    expect(message!.text).toContain('📍 Tehran · Remote');
+    expect(message!.text).toContain('<blockquote expandable>');
+    const buttons = message!.replyMarkup?.inline_keyboard.flat() ?? [];
+    expect(
+      buttons.some((b) => 'url' in b && 'url' in b && b.url.includes('irantalent.com/job/')),
+    ).toBe(true);
 
     // Notification + match persisted
     const notif = await prisma.notification.findFirst({

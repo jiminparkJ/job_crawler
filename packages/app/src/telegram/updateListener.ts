@@ -34,6 +34,8 @@ export class TelegramUpdateListener {
       logger?: Logger;
       profileCommands?: ProfileBotCommands;
       settingsMenu?: SettingsMenu;
+      /** Resolve a match id → job URL (keeps View-job button after feedback). */
+      jobUrlForMatch?: (matchId: string) => Promise<string | undefined>;
     } = {},
   ) {}
 
@@ -132,13 +134,15 @@ export class TelegramUpdateListener {
         else stats.ignored++;
 
         // Replace the two-button keyboard with a confirmation chip so the
-        // user sees the press was processed.
+        // user sees the press was processed (View-job link kept).
         if (cb.message && (result === 'saved' || result === 'not_relevant')) {
           try {
+            const matchId = cb.data.split(':')[1];
+            const url = await this.options.jobUrlForMatch?.(matchId);
             await this.telegram.editMessageReplyMarkup({
               chatId: String(cb.message.chat.id),
               messageId: cb.message.message_id,
-              replyMarkup: acknowledgedKeyboard(result),
+              replyMarkup: acknowledgedKeyboard(result, url ?? undefined),
             });
           } catch {
             // Message too old / already edited: cosmetic, not an error.

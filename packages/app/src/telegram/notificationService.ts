@@ -105,7 +105,7 @@ export class NotificationService {
           chatId,
           text,
           parseMode: 'HTML',
-          replyMarkup: feedbackKeyboard(match.id),
+          replyMarkup: feedbackKeyboard(match.id, match.job.canonicalUrl),
         });
 
         await prisma.notification.update({
@@ -209,7 +209,7 @@ export class NotificationService {
           chatId,
           text,
           parseMode: 'HTML',
-          replyMarkup: feedbackKeyboard(n.jobMatchId ?? n.jobMatch.id),
+          replyMarkup: feedbackKeyboard(n.jobMatchId ?? n.jobMatch.id, n.job.canonicalUrl),
         });
         await prisma.notification.update({
           where: { id: n.id },

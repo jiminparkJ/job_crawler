@@ -129,11 +129,19 @@ d('NotificationService (M6)', () => {
 
     const msg = tg.sent[0];
     expect(msg.chatId).toBe('12345');
-    expect(msg.text).toContain('88% MATCH');
-    expect(msg.text).toContain('Backend Developer');
-    expect(msg.text).toContain('45-60 T'); // salary converted to Tomans
-    expect(msg.text).toContain('🔗 View Job');
-    expect(msg.replyMarkup?.inline_keyboard[0][0].callback_data).toBe(`save:${matchId}`);
+    expect(msg.text).toContain('🚀 <b>88%</b>');
+    expect(msg.text).toContain('<b>Backend Developer</b>');
+    expect(msg.text).toContain('45–60 M T'); // salary in millions of Tomans
+    // Location line omitted — fixture job has no location (graceful absence)
+    expect(msg.text).not.toContain('📍');
+    expect(msg.text).toContain('<blockquote expandable>'); // collapsible why
+    const buttons = msg.replyMarkup?.inline_keyboard.flat() ?? [];
+    expect(buttons.some((b) => 'callback_data' in b && b.callback_data === `save:${matchId}`)).toBe(
+      true,
+    );
+    expect(buttons.some((b) => 'url' in b && b.url.includes('jobvision.ir/jobs/tgtest'))).toBe(
+      true,
+    );
 
     const notif = await prisma.notification.findFirst({
       where: { userId, jobId, channel: 'telegram' },
