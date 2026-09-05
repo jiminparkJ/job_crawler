@@ -83,7 +83,7 @@ describe('IranTalentSource.search', () => {
     expect(listings[0]).toMatchObject({
       source: 'irantalent',
       externalId: String(listFixture.data[0].id),
-      url: expect.stringMatching(/\/en\/job\/[a-z0-9-]+\/\d+$/),
+      url: expect.stringMatching(/\/job\/[a-z0-9-]+\/\d+$/),
     });
     expect(http.calls[0]).toContain('/en/jobs/it-software-web-development-filter-jobs?page=1');
   });
@@ -131,7 +131,7 @@ describe('IranTalentSource.normalize', () => {
       title: row.title,
       company: row.employer?.name,
       location: row.location_text,
-      url: expect.stringContaining(`/en/job/${row.slug}/${row.id}`),
+      url: expect.stringContaining(`/job/${row.slug}/${row.id}`),
     });
     expect(job.description.length).toBeGreaterThan(50);
     expect(job.description).not.toMatch(/<[^>]+>/);
@@ -224,7 +224,7 @@ describe('IranTalentSource.normalize', () => {
     expect(job.company).toBe('Unknown company');
     expect(job.location).toBeNull();
     expect(job.description).toBe('');
-    expect(job.url).toBe('https://www.irantalent.com/en/jobs');
+    expect(job.url).toBe('https://www.irantalent.com/jobs');
   });
 
   it('normalizes the detail fixture (requirements included)', () => {

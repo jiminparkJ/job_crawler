@@ -242,8 +242,12 @@ export class IranTalentSource {
     };
   }
 
+  /**
+   * Public job URL in the Persian (Farsi) UI — the user-facing default:
+   * https://www.irantalent.com/job/{slug}/{id}  (no /en/ prefix).
+   */
   jobUrl(externalId: string, slug: string): string {
-    return slug ? `${this.siteUrl}/en/job/${slug}/${externalId}` : `${this.siteUrl}/en/jobs`;
+    return slug ? `${this.siteUrl}/job/${slug}/${externalId}` : `${this.siteUrl}/jobs`;
   }
 }
 

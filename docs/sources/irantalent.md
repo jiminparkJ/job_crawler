@@ -21,7 +21,7 @@ Investigated: 2026-09-02. **Status: ADAPTER IMPLEMENTED & TESTED** — `packages
 {
   "id": 182480,
   "title": "Trading Manager", "title_farsi": "مدیر بازرگانی",
-  "slug": "trading-manager",                    // URL: /en/job/{slug}/{id}
+  "slug": "trading-manager",                    // URL: /job/{slug}/{id} (Persian UI)
   "salary_from": 1000000000, "salary_to": null, // RIALS (1e9 IRR = 100M Tomans? No: 1000000000 IRR = 100 Million Tomans)
   "is_show_salary": true,
   "work_type": "on_site" | "hybrid" | "remote",
@@ -50,7 +50,7 @@ Notes:
 
 ## Job detail (optional enrichment)
 
-URL: `https://www.irantalent.com/en/job/{slug}/{id}` — SSR HTML embeds full position payload in `<script id="ng-state">` (Angular TransferState, keyed object; find the object containing `role_description` + `id`).
+URL: `https://www.irantalent.com/job/{slug}/{id}` (Persian UI, no `/en/` prefix; the English variant `/en/job/...` also resolves but we link the Persian default) — SSR HTML embeds full position payload in `<script id="ng-state">` (Angular TransferState, keyed object; find the object containing `role_description` + `id`).
 
 Extra fields beyond list rows: `requirements_description(_farsi)`, `minimum_experience`, `minimum_experience_to_reject`, `keyword_current_job_title`, `keyword_product_tools_skills`, `study_fields`, `minimum_english_fluency_level_id`, `salary_rate_sign`, `approved_at`, `expires_at`, `view_count`.
 
