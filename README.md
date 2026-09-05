@@ -239,6 +239,40 @@ new jobs, matches, personalizes, and notifies. Your only job is pressing
 ⭐ Save / ❌ Not Relevant in Telegram — that feedback is what makes rankings
 improve over time.
 
+### Configure everything from Telegram (no terminal needed)
+
+Send these commands to your bot in the chat:
+
+| Command                                            | Effect                                     |
+| -------------------------------------------------- | ------------------------------------------ |
+| `/profile`                                         | Show your current search profile           |
+| `/set titles Backend Developer,برنامه نویس بک اند` | Replace your target titles (Persian works) |
+| `/set required Node.js,TypeScript`                 | Replace must-have keywords                 |
+| `/set preferred PostgreSQL,Docker`                 | Replace booster keywords                   |
+| `/set excluded PHP,WordPress`                      | Replace dealbreaker keywords (hard reject) |
+| `/set locations Remote,Tehran`                     | Replace allowed locations (hard filter)    |
+| `/set types full_time,contract`                    | Replace employment types (hard filter)     |
+| `/set minscore 70`                                 | Set the notify threshold (0–100)           |
+| `/clear excluded`                                  | Empty a field (see below)                  |
+| `/pause` / `/resume`                               | Stop / restart notifications               |
+| `/help`                                            | Command reference                          |
+
+**Empty fields are neutral, not restrictive** — leaving something unset never
+blocks a job:
+
+| If empty...           | Behavior                                             |
+| --------------------- | ---------------------------------------------------- |
+| `excluded`            | no keyword is a dealbreaker                          |
+| `locations`           | every location passes                                |
+| `types`               | every employment type passes                         |
+| `titles` / `required` | no score penalty (full credit)                       |
+| `preferred`           | no boost possible (score comes from titles/required) |
+| `minscore` (set to 0) | every passing job is notified (maximum volume)       |
+
+So `/clear excluded` + `/clear locations` = "show me everything, judge by score only".
+
+### Terminal commands (equivalent)
+
 Tune things when needed:
 
 ```bash
